@@ -1,0 +1,27 @@
+{
+  "name": "@luolapeikko/core-ts-array",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --declaration",
+    "test": "vitest run --typecheck --coverage",
+    "validate": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@luolapeikko/core-ts-error": ">= 0.0.1"
+  },
+  "devDependencies": {
+    "@luolapeikko/core-ts-error": "workspace:*"
+  }
+}

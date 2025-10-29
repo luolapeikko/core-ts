@@ -1,0 +1,16 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"paths": {
+			"@luolapeikko/core-ts-array": ["packages/core-ts-array/src/index.ts"],
+			"@luolapeikko/core-ts-async-iterable": ["packages/core-ts-async-iterable/src/index.ts"],
+			"@luolapeikko/core-ts-error": ["packages/core-ts-error/src/index.ts"],
+			"@luolapeikko/core-ts-iterable": ["packages/core-ts-iterable/src/index.ts"],
+			"@luolapeikko/core-ts-nullish": ["packages/core-ts-nullish/src/index.ts"],
+			"@luolapeikko/core-ts-number": ["packages/core-ts-number/src/index.ts"],
+			"@luolapeikko/core-ts-record": ["packages/core-ts-record/src/index.ts"],
+			"@luolapeikko/core-ts-string": ["packages/core-ts-string/src/index.ts"],
+			"@luolapeikko/core-ts-type": ["packages/core-ts-type/src/index.ts"]
+		}
+	}
+}

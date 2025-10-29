@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "paths": {
+      "@luolapeikko/core-ts-type": ["packages/core-ts-type/src/index.ts"],
+      "@luolapeikko/core-ts-error": ["packages/core-ts-error/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../core-ts-type" },
+    { "path": "../core-ts-error" }
+  ]
+}

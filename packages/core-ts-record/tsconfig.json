@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig.workspace.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist"
+	},
+	"include": ["src"],
+	"exclude": ["*.test.ts", "*.test-d.ts"],
+	"references": [{ "path": "../core-ts-type" }, { "path": "../core-ts-error" }]
+}

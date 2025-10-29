@@ -1,0 +1,71 @@
+import {RecordCore} from './core';
+
+/**
+ * The `RecordMapper` class provides utility functions for mapping and transforming record types.
+ * @since v0.0.1
+ */
+export class RecordMapper {
+	/**
+	 * Pick function to pick keys from an object or use as map function to pick keys from an array
+	 * @template K Pick keys
+	 * @template T Object type
+	 * @param {Iterable<K>} keys keys to pick
+	 * @returns {(value: T) => Pick<T, K>} picked object or map function
+	 * @example
+	 * type Data = {demo: string, value: number | null};
+	 * const dataArray: Data[] = [{demo: 'hello', value: null}];
+	 * const output: Pick<Data, 'demo'>[] = dataArray.map(RecordMapper.pick(['demo']));
+	 * @since v0.0.1
+	 */
+	public static pick<K extends PropertyKey>(keys: Iterable<K>): <T extends Partial<Record<K, unknown>>>(value: T) => Pick<T, K> {
+		return <T extends Partial<Record<K, unknown>>>(value: T) => {
+			return RecordCore.pick(keys, value);
+		};
+	}
+
+	/**
+	 * Omit function to omit keys from an object or use as map function to omit keys from an array
+	 * @template K Omit keys
+	 * @template T Object type
+	 * @param {Iterable<K>} keys to omit
+	 * @returns {(current: T) => Omit<T, K>} omitted object or map function
+	 * @example
+	 * type Data = {demo: string, value: number|null};
+	 * const dataArray: Data[] = [{demo: 'hello', value: null}];
+	 * const output: Omit<Data, 'demo'>[] = dataArray.map(RecordMapper.omit(['demo']));
+	 * @since v0.0.1
+	 */
+	public static omit<K extends PropertyKey>(keys: Iterable<K>): <T extends Partial<Record<K, unknown>>>(value: T) => Omit<T, K> {
+		return <T extends Partial<Record<K, unknown>>>(value: T) => {
+			return RecordCore.omit(keys, value);
+		};
+	}
+
+	/**
+	 * Creates a function that selects a specific property value from an object.
+	 *
+	 * Useful for use with arrays `map` function when extracting a single property from each object.
+	 * @template K Property name in target that will be selected
+	 * @template T Object target from which the property will be selected
+	 * @param {K} key The property name to select
+	 * @returns {(target: T) => T[K]} select value by key from the target
+	 * @example
+	 * // property access
+	 * const ids = users.map(RecordMapper.prop('id'));
+	 * // index access
+	 * const getFirst = RecordMapper.prop(0);
+	 * const test = getFirst(['a', 'b', 'c']); // 'a'
+	 * @since v0.0.1
+	 */
+	public static prop<T extends Record<PropertyKey, any> | any[], K extends keyof T>(key: K): (target: T) => T[K];
+	public static prop<K extends PropertyKey>(key: K): <T extends Record<K, any>>(target: T) => T[K];
+	public static prop<T extends Record<PropertyKey, any> | any[], K extends keyof T>(key: K): (target: T) => T[K] {
+		return (value: T): T[K] => {
+			return value[key];
+		};
+	}
+
+	private constructor() {
+		throw new Error('This class should not be instantiated.');
+	}
+}

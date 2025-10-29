@@ -1,0 +1,14 @@
+{
+	"files": [],
+	"references": [
+		{"path": "./packages/core-ts-array"},
+		{"path": "./packages/core-ts-async-iterable"},
+		{"path": "./packages/core-ts-error"},
+		{"path": "./packages/core-ts-iterable"},
+		{"path": "./packages/core-ts-nullish"},
+		{"path": "./packages/core-ts-number"},
+		{"path": "./packages/core-ts-record"},
+		{"path": "./packages/core-ts-string"},
+		{"path": "./packages/core-ts-type"}
+	]
+}
