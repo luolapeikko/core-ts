@@ -1,54 +1,31 @@
 import {describe, expect, it} from 'vitest';
 import {IterPredicate} from './';
 
+const arr: string[] = ['a', 'b', 'c'];
+
 describe('IterPredicate', () => {
 	describe('oneOf and notOneOf', () => {
-		const arr = ['a', 'b', 'c'] as const;
-		const containsA = IterPredicate.oneOf('a');
-		const notContainsD = IterPredicate.notOneOf('d');
-
 		it('oneOf creates predicate function', () => {
-			expect(containsA(arr)).toBe(true);
-			expect(containsA(['x', 'y'])).toBe(false);
+			const data = arr.filter(IterPredicate.oneOf('a' as const));
+			expect(arr.filter(IterPredicate.oneOf('a'))).toEqual(['a']);
+			expect(arr.filter(IterPredicate.oneOf('z'))).toEqual([]);
 		});
 
 		it('notOneOf creates predicate function', () => {
-			expect(notContainsD(arr)).toBe(true);
-			expect(notContainsD(['d', 'e'])).toBe(false);
+			expect(arr.filter(IterPredicate.notOneOf('a'))).toEqual(['b', 'c']);
+			expect(arr.filter(IterPredicate.notOneOf('z'))).toEqual(['a', 'b', 'c']);
 		});
 	});
 
 	describe('anyOf and notAnyOf', () => {
-		const arr = ['a', 'b', 'c'] as const;
-		const values1 = ['b', 'x'];
-		const values2 = ['x', 'y'];
-
-		const containsAny1 = IterPredicate.anyOf(values1);
-		const containsAny2 = IterPredicate.anyOf(values2);
-		const containsNone2 = IterPredicate.notAnyOf(values2);
-
 		it('anyOf creates predicate function', () => {
-			expect(containsAny1(arr)).toBe(true);
-			expect(containsAny2(arr)).toBe(false);
+			expect(arr.filter(IterPredicate.anyOf(['b', 'x']))).toEqual(['b']);
+			expect(arr.filter(IterPredicate.anyOf(['y', 'x']))).toEqual([]);
 		});
 
 		it('notAnyOf creates predicate function', () => {
-			expect(containsNone2(arr)).toBe(true);
-			expect(containsNone2(['x', 'y'])).toBe(false);
-		});
-	});
-
-	describe('allOf', () => {
-		const arr = ['a', 'b', 'c'] as const;
-		const values1 = ['a', 'b', 'c'];
-		const values2 = ['a', 'b'];
-
-		const containsAll1 = IterPredicate.allOf(values1);
-		const containsAll2 = IterPredicate.allOf(values2);
-
-		it('creates predicate function', () => {
-			expect(containsAll1(arr)).toBe(true);
-			expect(containsAll2(arr)).toBe(false);
+			expect(arr.filter(IterPredicate.notAnyOf(['b', 'x']))).toEqual(['a', 'c']);
+			expect(arr.filter(IterPredicate.notAnyOf(['y', 'x']))).toEqual(['a', 'b', 'c']);
 		});
 	});
 

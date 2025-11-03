@@ -16,6 +16,11 @@ describe('RecordPredicate', () => {
 				{name: 'Alice', role: 'admin'},
 				{name: 'Charlie', role: 'admin'},
 			]);
+			const adminsArray = users.filter(RecordPredicate.propEq<User, 'role'>('role', ['admin']));
+			expect(adminsArray).toEqual([
+				{name: 'Alice', role: 'admin'},
+				{name: 'Charlie', role: 'admin'},
+			]);
 		});
 
 		it('should work with loosely typed objects', () => {
@@ -68,6 +73,8 @@ describe('RecordPredicate', () => {
 
 			const nonAdmins = users.filter(RecordPredicate.propNotEq<User, 'role'>('role', 'admin'));
 			expect(nonAdmins).toEqual([{name: 'Bob', role: 'user'}]);
+			const nonAdminsArray = users.filter(RecordPredicate.propNotEq<User, 'role'>('role', ['admin']));
+			expect(nonAdminsArray).toEqual([{name: 'Bob', role: 'user'}]);
 		});
 
 		it('should work with loosely typed objects', () => {

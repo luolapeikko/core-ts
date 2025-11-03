@@ -18,8 +18,8 @@ export class StringPredicate {
 	 * @returns {(value: T) => value is IsGuard<T, PrefixedString<P>>} A predicate function that checks if the value starts with the specified prefix.
 	 * @since v0.0.1
 	 */
-	public static startsWith<P extends string>(prefix: P): <T>(value: T) => value is IsGuard<T, PrefixedString<P>> {
-		return <T>(value: T) => StringCore.startsWith<T, P>(value, prefix);
+	public static startsWith<P extends string>(prefix: P): <T>(value: NoInfer<T> | string) => value is IsGuard<T, PrefixedString<P>> {
+		return <T>(value: NoInfer<T> | string) => StringCore.startsWith<T, P>(value, prefix);
 	}
 
 	/**
@@ -34,8 +34,8 @@ export class StringPredicate {
 	 * @returns {(value: T) => value is IsGuard<T, SuffixedString<S>>} A predicate function that checks if the value ends with the specified suffix.
 	 * @since v0.0.1
 	 */
-	public static endsWith<S extends string>(suffix: S): <T>(value: T) => value is IsGuard<T, SuffixedString<S>> {
-		return <T>(value: T) => StringCore.endsWith<T, S>(value, suffix);
+	public static endsWith<S extends string>(suffix: S): <T>(value: NoInfer<T> | string) => value is IsGuard<T, SuffixedString<S>> {
+		return <T>(value: NoInfer<T> | string) => StringCore.endsWith<T, S>(value, suffix);
 	}
 
 	private constructor() {

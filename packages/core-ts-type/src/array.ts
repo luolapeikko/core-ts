@@ -11,3 +11,5 @@ export type NonEmptyArray<T> = [T, ...T[]];
  * @since v0.0.1
  */
 export type NonEmptyReadonlyArray<T> = readonly [T, ...T[]];
+
+export type AnyArray<T> = Array<T> | ReadonlyArray<T>;

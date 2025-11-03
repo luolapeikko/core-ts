@@ -11,7 +11,9 @@ applyTo: "**"
 - uses pnpm workspaces
 - typescript paths / references to handle development deps (in tsconfig.base.json)
   - paths in tsconfig.base.json
-  - all references on root tsconfig.json and also each module have references to core-ts-type abd core-ts-error
+  - all references described on root tsconfig.json
+  - each modules tsconfig.json extending root tsconfig.workspace.json and have references to core-ts-type and core-ts-error.
+  - each module have own tsconfig.build.json which extends packages tsconfig.json to remove unit test files and example.ts files from build output.
 - vitest is used as unit testing, "pnpm t" command on root folder runs build and vitest with coverage
 - biome is used as linting, "pnpm run lint:fix" command on root folder tries to fix all lint issues automatically.
 - each package files are
@@ -29,9 +31,10 @@ applyTo: "**"
 - Create package named folder to packages/ directory.
 - Add module path to tsconfig.workspace.json.
 - Add reference to root tsconfig.json.
-- Copy package.json and tsconfig.json from "core-ts-string" module to new package folder.
+- Copy package.json, tsconfig.json and tsconfig.build.json from "core-ts-string" module to new package folder.
 - Change new module package.json name to "@luolapeikko/{new package name}" and verify/modify that version is "0.0.1"
-- Create src/core.ts and src/index.ts, and then write "export * from './core';" to index.ts
+- Create src/index.ts with content "export * from './core';"
+- Create empty src/core.ts file.
 
 # Project general coding standards
 
@@ -39,6 +42,12 @@ applyTo: "**"
 - Use PascalCase for class names, interfaces, and type aliases
 - Use camelCase for variables, functions, and methods
 - use # for private class members
+
+## Basic type rules for validation methods
+- Basic method template for "true" types (like is*)  "public static is<T = unknown>(value: NoInfer<T> | *TargetType*): value is IsGuard<T, *TargetType*>"
+  - NoInfer is used to avoid type narrowing issues on union types.
+- Basic method template for "false" types (like isNot*)  "public static isNot<T = unknown>(value: T): value is IsNotGuard<T, *TargetType*>"
+  - This must not use NoInfer to allow type narrowing to work correctly.
 
 ## JSDoc Comments
 - All classes, methods, and functions must have JSDoc comments.
@@ -59,9 +68,10 @@ applyTo: "**"
 ## Unit testing
 - All code files should have same prefix test file on same directory (core.ts with core.test.ts)
 - All vitest type testing files use same rule but files suffix is test-d.ts
-- Use vitest --coverage argument to see all functions and methods are covered
-- Verify that unit test coverage is 100% for package with "pnpm run coverage" in root folder (this output JSON information about coverage)
-- All unit tests should be using file from './' index.ts to verify that exports are working correctly.
+- Use "pnpm run test" to run all unit tests and verify that coverage is 100%
+- If like to get more detailed JSON output about coverage, use "pnpm run coverage" command on root folder.
+- All unit tests should be always using file from './' index.ts to verify that exports are working correctly.
+- Create or update readme.test.ts file to verify that readme usage examples are working correctly.
 
 ## Error Handling
 - Each core.ts should have own buildValueErr method to build 

@@ -15,7 +15,7 @@ export class NullishCore {
 	 * const count = data.filter(NullishCore.isUndefined).length; // 1
 	 * @since v0.0.1
 	 */
-	public static isUndefined<T = unknown>(value: T): value is IsGuard<T, undefined> {
+	public static isUndefined<T = unknown>(value: NoInfer<T> | undefined): value is IsGuard<T, undefined> {
 		return value === undefined;
 	}
 
@@ -34,16 +34,16 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard check if the given value is `null`.
+	 * Type guard to check if the given value is `null`.
 	 * @template T The type of the value
-	 * @param {unknown} value The value to check
-	 * @returns {boolean} True if the value is null or undefined, otherwise false
+	 * @param {NoInfer<T> | null} value The value to check
+	 * @returns {boolean} True if the value is null, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const count = data.filter(NullishCore.isNull).length; // 1
 	 * @since v0.0.1
 	 */
-	public static isNull<T = unknown>(value: T): value is IsGuard<T, null> {
+	public static isNull<T = unknown>(value: NoInfer<T> | null): value is IsGuard<T, null> {
 		return value === null;
 	}
 
@@ -64,21 +64,21 @@ export class NullishCore {
 	/**
 	 * Type guard check if the given value is null or undefined.
 	 * @template T The type of the value
-	 * @param {unknown} value The value to check
+	 * @param {NoInfer<T> | null | undefined} value The value to check
 	 * @returns {boolean} True if the value is null or undefined, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const count = data.filter(NullishCore.isNullish).length; // 2
 	 * @since v0.0.1
 	 */
-	public static isNullish<T = unknown>(value: T): value is IsGuard<T, null | undefined> {
+	public static isNullish<T = unknown>(value: NoInfer<T> | null | undefined): value is IsGuard<T, null | undefined> {
 		return value === null || value === undefined;
 	}
 
 	/**
 	 * Type guard check if the given value is NOT `null` or `undefined`.
 	 * @template T The type of the value
-	 * @param {Nullish<T>} value The value to check
+	 * @param {NoInfer<T> | null | undefined} value The value to check
 	 * @returns {value is T} True if the value is neither null nor undefined, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];

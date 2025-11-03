@@ -8,22 +8,22 @@ import {ErrorValue} from './value';
 export class ErrorCore {
 	/**
 	 * Checks if the given value is an instance of the `Error` class.
-	 * @param {unknown} err - Value to check.
+	 * @param {NoInfer<T> | Error} err - Value to check.
 	 * @returns {boolean} True if the value is an instance of the `Error` class; otherwise, false.
 	 * @since v0.0.1
 	 */
-	public static is<T = unknown>(err: T): err is IsGuard<T, Error> {
+	public static is<T = unknown>(err: NoInfer<T> | Error): err is T & IsGuard<T, Error> {
 		return err instanceof Error;
 	}
 
 	/**
 	 * Checks if the given value is not an instance of the `Error` class.
 	 * @template T - The type of the value to check.
-	 * @param {T} err - The value to check.
+	 * @param {NoInfer<T> | Error} err - The value to check.
 	 * @returns {boolean} True if the value is not an instance of the `Error` class; otherwise, false.
 	 * @since v0.0.1
 	 */
-	public static isNot<T = unknown>(err: T): err is IsNotGuard<T, Error> {
+	public static isNot<T = unknown>(err: NoInfer<T> | Error): err is IsNotGuard<T, Error> {
 		return !(err instanceof Error);
 	}
 

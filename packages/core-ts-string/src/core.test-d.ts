@@ -42,16 +42,25 @@ describe('Test StringCore functions', () => {
 			}
 			assertType<string>(value);
 		});
+		it('is unknown', () => {
+			const value: unknown = 'test';
+			if (S.is(value)) {
+				assertType<string>(value);
+			} else {
+				assertType<unknown>(value);
+			}
+		});
 		it('is with generics', () => {
 			const value = 'test' as string | undefined;
-			if (!S.is<string | undefined>(value)) {
-				throw new Error('value should be string');
+			if (S.is<string | undefined>(value)) {
+				assertType<string>(value);
+			} else {
+				assertType<undefined>(value);
 			}
-			assertType<string>(value);
 		});
 		it('is with bad generics', () => {
-			const value = 'test' as string | undefined;
-			// @ts-expect-error Argument of type 'string | undefined' is not assignable to parameter of type 'null | undefined'.
+			const value = new Date() as Date | undefined;
+			// @ts-expect-error Type 'Date' is not assignable to type 'string'.
 			if (!S.is<null | undefined>(value)) {
 				throw new Error('value should be string');
 			}
@@ -63,6 +72,13 @@ describe('Test StringCore functions', () => {
 				throw new Error('value should not be string');
 			}
 			assertType<undefined>(value);
+		});
+		it('isNot', () => {
+			const value: unknown = 'test';
+			if (!S.isNot(value)) {
+				throw new Error('value should not be string');
+			}
+			assertType<unknown>(value);
 		});
 		it('isEmpty', () => {
 			const value = 'test' as string | undefined;

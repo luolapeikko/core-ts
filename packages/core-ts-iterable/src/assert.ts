@@ -14,7 +14,7 @@ export class IterAssert {
 	 * @throws {TypeError} If the value is not an iterable.
 	 * @since v0.0.1
 	 */
-	public static assert<T = unknown>(value: T): asserts value is IsGuard<T, Iterable<unknown>> {
+	public static assert<T = unknown>(value: NoInfer<T> | Iterable<unknown>): asserts value is IsGuard<T, Iterable<unknown>> {
 		if (!IterCore.is(value)) {
 			throw IterCore.buildValueErr(value);
 		}

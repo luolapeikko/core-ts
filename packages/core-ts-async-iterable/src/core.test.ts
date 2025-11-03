@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import {AsyncIterCore} from './';
+import {AsyncIterCore, AsyncIterPredicate} from './';
 
 async function* createAsyncIterable<T>(items: T[]): AsyncIterable<T> {
 	for (const item of items) {
@@ -73,6 +73,70 @@ describe('AsyncIterCore', () => {
 		expect(await AsyncIterCore.allOf(arr, values1)).toBe(true);
 		expect(await AsyncIterCore.allOf(arr, values2)).toBe(false);
 		expect(await AsyncIterCore.allOf(arr, values3)).toBe(true);
+	});
+
+	it('filter with AsyncIterable and sync predicate', async () => {
+		const asyncIterable = createAsyncIterable([1, 2, 3, 4, 5]);
+		const filtered = AsyncIterCore.filter(asyncIterable, (x) => x % 2 === 0);
+		const result = [];
+		for await (const item of filtered) {
+			result.push(item);
+		}
+		expect(result).toEqual([2, 4]);
+	});
+
+	it('filter with AsyncIterable and async predicate', async () => {
+		const asyncIterable = createAsyncIterable(['hello', 'world', 'test']);
+		const asyncPredicate = async (x: string) => x.length > 4;
+		const filtered = AsyncIterCore.filter(asyncIterable, asyncPredicate);
+		const result = [];
+		for await (const item of filtered) {
+			result.push(item);
+		}
+		expect(result).toEqual(['hello', 'world']);
+	});
+
+	it('filter with regular Iterable and sync predicate', async () => {
+		const arr = [1, 2, 3, 4, 5];
+		const filtered = AsyncIterCore.filter(arr, (x) => x > 3);
+		const result = [];
+		for await (const item of filtered) {
+			result.push(item);
+		}
+		expect(result).toEqual([4, 5]);
+	});
+
+	it('filter with regular Iterable and async predicate', async () => {
+		const arr = ['a', 'ab', 'abc', 'abcd'];
+		const asyncPredicate = async (x: string) => {
+			// Simulate async operation
+			return Promise.resolve(x.length >= 3);
+		};
+		const filtered = AsyncIterCore.filter(arr, asyncPredicate);
+		const result = [];
+		for await (const item of filtered) {
+			result.push(item);
+		}
+		expect(result).toEqual(['abc', 'abcd']);
+	});
+
+	it('filter returns empty when no items match', async () => {
+		const asyncIterable = createAsyncIterable([1, 2, 3]);
+		const result = [];
+		for await (const item of AsyncIterCore.filter(asyncIterable, (x) => x > 10)) {
+			result.push(item);
+		}
+		expect(result).toEqual([]);
+	});
+
+	it('filter returns empty when no items match', async () => {
+		const asyncIterable = createAsyncIterable([1, 2, 3]);
+		const result = [];
+		const test = AsyncIterPredicate.oneOf(10);
+		for await (const item of AsyncIterCore.filter(asyncIterable, AsyncIterPredicate.oneOf(10))) {
+			result.push(item);
+		}
+		expect(result).toEqual([]);
 	});
 
 	it('error builder', () => {

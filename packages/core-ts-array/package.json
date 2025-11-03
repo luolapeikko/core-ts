@@ -1,27 +1,44 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-array",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "description": "Type-safe array validation, assertions, and predicates for TypeScript",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --declaration",
+    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
     "test": "vitest run --typecheck --coverage",
     "validate": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "@luolapeikko/core-ts-error": ">= 0.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luolapeikko/core-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "common",
+    "interface",
+    "type"
+  ],
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luolapeikko/core-ts/issues"
   },
   "devDependencies": {
     "@luolapeikko/core-ts-error": "workspace:*"
-  }
+  },
+  "homepage": "https://github.com/luolapeikko/core-ts#readme",
+  "packageManager": "pnpm@10.17.1"
 }

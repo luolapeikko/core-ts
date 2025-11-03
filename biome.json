@@ -47,5 +47,26 @@
 	"assist": {
 		"enabled": true,
 		"actions": { "source": { "organizeImports": "on" } }
-	}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.test.ts", "**/*.test-d.ts", "**/example.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noNonNullAssertion": "off"
+					},
+					"suspicious": {
+						"noExplicitAny": "off"
+					},
+					"complexity": {
+						"noForEach": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		}
+	]
 }

@@ -1,4 +1,4 @@
-import type {IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
+import type {AnyArray, IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
 import {ArrayCore} from './core';
 
 /**
@@ -13,7 +13,7 @@ export class ArrayAssert {
 	 * @throws {TypeError} If the value is not an array.
 	 * @since v0.0.1
 	 */
-	public static assert<T = unknown>(value: T): asserts value is IsGuard<T, Array<unknown>> {
+	public static assert<T = unknown>(value: NoInfer<T> | AnyArray<unknown>): asserts value is IsGuard<T, AnyArray<unknown>> {
 		if (!ArrayCore.is(value)) {
 			throw ArrayCore.buildValueErr(value);
 		}
@@ -26,7 +26,7 @@ export class ArrayAssert {
 	 * @throws {TypeError} If the value is an array.
 	 * @since v0.0.1
 	 */
-	public static assertNot<T = unknown>(value: unknown): asserts value is IsNotGuard<T, Array<unknown>> {
+	public static assertNot<T = unknown>(value: unknown): asserts value is IsNotGuard<T, AnyArray<unknown>> {
 		if (ArrayCore.is(value)) {
 			throw ArrayCore.buildValueErr(value, true);
 		}

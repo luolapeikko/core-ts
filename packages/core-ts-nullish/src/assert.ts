@@ -15,7 +15,7 @@ export class NullishAssert {
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
-	public static assertUndefined<T = unknown>(value: T): asserts value is IsGuard<T, undefined> {
+	public static assertUndefined<T = unknown>(value: NoInfer<T> | undefined): asserts value is IsGuard<T, undefined> {
 		if (!NullishCore.isUndefined(value)) {
 			throw NullishCore.buildValueErr(value, 'Undefined');
 		}
@@ -48,7 +48,7 @@ export class NullishAssert {
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
-	public static assertNull<T = unknown>(value: T): asserts value is IsGuard<T, null> {
+	public static assertNull<T = unknown>(value: NoInfer<T> | null): asserts value is IsGuard<T, null> {
 		if (!NullishCore.isNull(value)) {
 			throw NullishCore.buildValueErr(value, 'Null');
 		}
@@ -81,7 +81,7 @@ export class NullishAssert {
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
-	public static assertNullish<T = unknown>(value: T): asserts value is IsGuard<T, null | undefined> {
+	public static assertNullish<T = unknown>(value: NoInfer<T> | null | undefined): asserts value is IsGuard<T, null | undefined> {
 		if (!NullishCore.isNullish(value)) {
 			throw NullishCore.buildValueErr(value, 'Nullish');
 		}

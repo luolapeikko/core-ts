@@ -11,7 +11,7 @@ export default defineConfig({
 			provider: 'v8',
 			reporter: ['text'],
 			include: ['**/*.ts'],
-			exclude: ['**/dist/**', '**/*.test-d.ts','**/core-ts-type'],
+			exclude: ['**/dist/**','**/example.ts', '**/*.test-d.ts','**/core-ts-type'],
 		},
 		typecheck: {
 			include: ['**/*.test-d.ts'],

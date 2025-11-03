@@ -13,7 +13,7 @@ export class IterCore {
 	 * @returns {boolean} `true` if the value implements the `Iterable` interface; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static is<T = unknown>(value: T): value is IsGuard<T, Iterable<unknown>> {
+	public static is<T = unknown>(value: NoInfer<T> | Iterable<unknown>): value is IsGuard<T, Iterable<unknown>> {
 		return typeof (value as any)?.[Symbol.iterator] === 'function';
 	}
 

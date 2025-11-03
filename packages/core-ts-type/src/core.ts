@@ -1,11 +1,11 @@
 import type {MappingShape} from './mapper';
 
-export type IsGuard<T, Base> = Extract<T, Base>;
+export type IsGuard<T, Base> = T extends Base ? T : Base;
 
 export type IsNotGuard<T, Base> = Exclude<T, Base>;
 
 export type WithIsPositiveCore<T extends MappingShape> = {
-	[Key in keyof T as Key extends string ? `is${Key}` : never]: <R = unknown>(value: R) => value is IsGuard<R, T[Key][1]>;
+	[Key in keyof T as Key extends string ? `is${Key}` : never]: <R = unknown>(value: NoInfer<R> | T[Key][0]) => value is IsGuard<R, T[Key][1]>;
 };
 
 export type WithIsNegativeCore<T extends MappingShape> = {
@@ -15,7 +15,7 @@ export type WithIsNegativeCore<T extends MappingShape> = {
 export type WithIsCore<T extends MappingShape> = WithIsPositiveCore<T> & WithIsNegativeCore<T>;
 
 export type WithAssertPositiveCore<T extends MappingShape> = {
-	[Key in keyof T as Key extends string ? `assert${Key}` : never]: <R = unknown>(value: R) => asserts value is IsGuard<R, T[Key][1]>;
+	[Key in keyof T as Key extends string ? `assert${Key}` : never]: <R = unknown>(value: NoInfer<R> | T[Key][0]) => asserts value is IsGuard<R, T[Key][1]>;
 };
 
 export type WithAssertNegativeCore<T extends MappingShape> = {

@@ -6,7 +6,7 @@ import type {IsGuard, IsNotGuard, NumberFnMapping, WithIsCore} from '@luolapeikk
  * @since v0.0.1
  */
 export class NumberCore {
-	public static isNumber<T = unknown>(value: T): value is IsGuard<T, number> {
+	public static isNumber<T = unknown>(value: NoInfer<T> | number): value is IsGuard<T, number> {
 		return typeof value === 'number' && !Number.isNaN(value);
 	}
 
@@ -14,7 +14,7 @@ export class NumberCore {
 		return !NumberCore.isNumber(value);
 	}
 
-	public static isInt<T = unknown>(value: T): value is IsGuard<T, number> {
+	public static isInt<T = unknown>(value: NoInfer<T> | number): value is IsGuard<T, number> {
 		return NumberCore.isNumber(value) && Number.isInteger(value as number);
 	}
 
@@ -22,7 +22,7 @@ export class NumberCore {
 		return !NumberCore.isInt(value);
 	}
 
-	public static isFloat<T = unknown>(value: T): value is IsGuard<T, number> {
+	public static isFloat<T = unknown>(value: NoInfer<T> | number): value is IsGuard<T, number> {
 		return NumberCore.isNumber(value) && !Number.isInteger(value as number);
 	}
 
@@ -30,7 +30,7 @@ export class NumberCore {
 		return !NumberCore.isFloat(value);
 	}
 
-	public static isBigInt<T = unknown>(value: T): value is IsGuard<T, bigint> {
+	public static isBigInt<T = unknown>(value: NoInfer<T> | bigint): value is IsGuard<T, bigint> {
 		return typeof value === 'bigint';
 	}
 
@@ -38,7 +38,7 @@ export class NumberCore {
 		return !NumberCore.isBigInt(value);
 	}
 
-	public static isFinite<T = unknown>(value: T): value is IsGuard<T, number> {
+	public static isFinite<T = unknown>(value: NoInfer<T> | number): value is IsGuard<T, number> {
 		return NumberCore.isNumber(value) && Number.isFinite(value as number);
 	}
 
@@ -46,7 +46,7 @@ export class NumberCore {
 		return !NumberCore.isFinite(value);
 	}
 
-	public static isSafeInteger<T = unknown>(value: T): value is IsGuard<T, number> {
+	public static isSafeInteger<T = unknown>(value: NoInfer<T> | number): value is IsGuard<T, number> {
 		return NumberCore.isNumber(value) && Number.isSafeInteger(value as number);
 	}
 

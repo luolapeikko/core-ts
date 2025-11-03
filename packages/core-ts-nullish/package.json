@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-nullish",
   "version": "0.0.1",
-  "description": "",
+  "description": "Type-safe null/undefined validation and assertions for TypeScript",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,18 +17,28 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean",
+    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
     "validate": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "peerDependencies": {
-    "@luolapeikko/core-ts-error": ">= 0.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luolapeikko/core-ts.git"
   },
+  "keywords": [
+    "typescript",
+    "common",
+    "interface",
+    "type"
+  ],
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luolapeikko/core-ts/issues"
+  },
+  "homepage": "https://github.com/luolapeikko/core-ts#readme",
   "devDependencies": {
     "@luolapeikko/core-ts-error": "workspace:*"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "packageManager": "pnpm@10.17.1"
 }

@@ -13,7 +13,7 @@ export class StringCore {
 	 * @returns {boolean} `true` if the value is a `string`; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static is<T = unknown>(value: T): value is IsGuard<T, string> {
+	public static is<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, string> {
 		return typeof value === 'string';
 	}
 
@@ -39,7 +39,7 @@ export class StringCore {
 	 * @returns {boolean} `true` if the value is an empty string; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static isEmpty<T = unknown>(value: T): value is IsGuard<T, EmptyString> {
+	public static isEmpty<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, EmptyString> {
 		return StringCore.is(value) && value.length === 0;
 	}
 
@@ -69,7 +69,7 @@ export class StringCore {
 	 * @returns {boolean} `true` if the value is a lowercase string; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static isLowerCase<T = unknown>(value: T): value is IsGuard<T, Lowercase<string>> {
+	public static isLowerCase<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, Lowercase<string>> {
 		return StringCore.is(value) && value === value.toLowerCase();
 	}
 
@@ -99,7 +99,7 @@ export class StringCore {
 	 * @returns {boolean} `true` if the value is an uppercase string; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static isUpperCase<T = unknown>(value: T): value is IsGuard<T, Uppercase<string>> {
+	public static isUpperCase<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, Uppercase<string>> {
 		return StringCore.is(value) && value === value.toUpperCase();
 	}
 
@@ -131,7 +131,7 @@ export class StringCore {
 	 * @returns {value is PrefixedString<P>} `true` if the value starts with the prefix; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static startsWith<T = unknown, P extends string = string>(value: T, prefix: P): value is IsGuard<T, PrefixedString<P>> {
+	public static startsWith<T = unknown, P extends string = string>(value: NoInfer<T> | string, prefix: P): value is IsGuard<T, PrefixedString<P>> {
 		return StringCore.is(value) && value.startsWith(prefix);
 	}
 
@@ -148,7 +148,7 @@ export class StringCore {
 	 * @returns {value is SuffixedString<S>} `true` if the value ends with the suffix; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static endsWith<T = unknown, S extends string = string>(value: T, suffix: S): value is IsGuard<T, SuffixedString<S>> {
+	public static endsWith<T = unknown, S extends string = string>(value: NoInfer<T> | string, suffix: S): value is IsGuard<T, SuffixedString<S>> {
 		return StringCore.is(value) && value.endsWith(suffix);
 	}
 
@@ -164,7 +164,7 @@ export class StringCore {
 	 * @returns {boolean} `true` if the value is a numeric string; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static isNumeric<T = unknown>(value: T): value is IsGuard<T, NumberString> {
+	public static isNumeric<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, NumberString> {
 		return StringCore.is(value) && !Number.isNaN(Number(value)) && !Number.isNaN(parseFloat(value));
 	}
 
@@ -208,7 +208,7 @@ export class StringCore {
  * Check that we have all methods implemented
  */
 type BaseType = WithIsCore<StringFnMapping> & {
-	startsWith<P extends string>(value: unknown, prefix: P): value is PrefixedString<P>;
-	endsWith<S extends string>(value: unknown, suffix: S): value is SuffixedString<S>;
+	startsWith<R = unknown, P extends string = string>(value: NoInfer<R> | string, prefix: P): value is IsGuard<R, PrefixedString<P>>;
+	endsWith<R = unknown, S extends string = string>(value: NoInfer<R> | string, suffix: S): value is IsGuard<R, SuffixedString<S>>;
 };
 void 0 as unknown as typeof StringCore satisfies BaseType;

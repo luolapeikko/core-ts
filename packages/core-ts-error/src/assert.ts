@@ -20,7 +20,7 @@ export class ErrorAssert {
 	 *   console.log(err.message);
 	 * }
 	 */
-	public static assert<T = unknown>(err: T): asserts err is IsGuard<T, Error> {
+	public static assert<T = unknown>(err: T): asserts err is T & IsGuard<T, Error> {
 		if (ErrorCore.isNot(err)) {
 			throw ErrorCore.buildValueErr(err);
 		}

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-type",
   "version": "0.0.1",
   "description": "Common TypeScript types for @luolapeikko/core-ts packages",
@@ -20,7 +21,7 @@
     "validate": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/luolapeikko/core-ts.git"
   },

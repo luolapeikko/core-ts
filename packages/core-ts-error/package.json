@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-error",
   "version": "0.0.1",
-  "description": "",
+  "description": "Error handling utilities and type-safe error building for TypeScript",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,13 +17,25 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean",
+    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
     "validate": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luolapeikko/core-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "common",
+    "interface",
+    "type"
+  ],
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luolapeikko/core-ts/issues"
+  },
+  "homepage": "https://github.com/luolapeikko/core-ts#readme",
   "packageManager": "pnpm@10.17.1"
 }

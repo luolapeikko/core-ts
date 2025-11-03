@@ -13,7 +13,7 @@ export class NumberAssert {
 	 * @throws {TypeError} If the value is not a number.
 	 * @since v0.0.1
 	 */
-	public static assertNumber<T = unknown>(value: T): asserts value is IsGuard<T, number> {
+	public static assertNumber<T = unknown>(value: NoInfer<T> | number): asserts value is IsGuard<T, number> {
 		if (NumberCore.isNotNumber(value)) {
 			throw NumberCore.buildValueErr(value, 'Number');
 		}
@@ -39,7 +39,7 @@ export class NumberAssert {
 	 * @throws {TypeError} If the value is not an integer number.
 	 * @since v0.0.1
 	 */
-	public static assertInt<T = unknown>(value: T): asserts value is IsGuard<T, number> {
+	public static assertInt<T = unknown>(value: NoInfer<T> | number): asserts value is IsGuard<T, number> {
 		if (NumberCore.isNotInt(value)) {
 			throw NumberCore.buildValueErr(value, 'Integer');
 		}
@@ -65,7 +65,7 @@ export class NumberAssert {
 	 * @throws {TypeError} If the value is not a floating-point number.
 	 * @since v0.0.1
 	 */
-	public static assertFloat<T = unknown>(value: T): asserts value is IsGuard<T, number> {
+	public static assertFloat<T = unknown>(value: NoInfer<T> | number): asserts value is IsGuard<T, number> {
 		if (NumberCore.isNotFloat(value)) {
 			// Float doesn't have a dedicated typeName in buildValueErr; use 'Number'
 			throw NumberCore.buildValueErr(value, 'Number');
@@ -92,7 +92,7 @@ export class NumberAssert {
 	 * @throws {TypeError} If the value is not a bigint.
 	 * @since v0.0.1
 	 */
-	public static assertBigInt<T = unknown>(value: T): asserts value is IsGuard<T, bigint> {
+	public static assertBigInt<T = unknown>(value: NoInfer<T> | bigint): asserts value is IsGuard<T, bigint> {
 		if (NumberCore.isNotBigInt(value)) {
 			throw NumberCore.buildValueErr(value, 'BigInt');
 		}
@@ -118,7 +118,7 @@ export class NumberAssert {
 	 * @throws {TypeError} If the value is not a finite number.
 	 * @since v0.0.1
 	 */
-	public static assertFinite<T = unknown>(value: T): asserts value is IsGuard<T, number> {
+	public static assertFinite<T = unknown>(value: NoInfer<T> | number): asserts value is IsGuard<T, number> {
 		if (NumberCore.isNotFinite(value)) {
 			throw NumberCore.buildValueErr(value, 'Finite');
 		}
@@ -137,7 +137,7 @@ export class NumberAssert {
 		}
 	}
 
-	public static assertSafeInteger<T = unknown>(value: T): asserts value is IsGuard<T, number> {
+	public static assertSafeInteger<T = unknown>(value: NoInfer<T> | number): asserts value is IsGuard<T, number> {
 		if (NumberCore.isNotSafeInteger(value)) {
 			throw NumberCore.buildValueErr(value, 'SafeInteger');
 		}

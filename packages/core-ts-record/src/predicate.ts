@@ -21,9 +21,13 @@ export class RecordPredicate {
 	 * const publishedPosts = posts.filter(isPublished);
 	 * @since v0.0.1
 	 */
-	public static propEq<T extends Record<PropertyKey, any>, K extends keyof T>(key: K, value: T[K]): (target: T) => boolean;
-	public static propEq<V, K extends PropertyKey>(key: K, value: V): (obj: Partial<Record<K, V>>) => boolean;
-	public static propEq<V, K extends PropertyKey>(key: K, value: V): (obj: Partial<Record<K, V>>) => boolean {
+	public static propEq<T extends Record<PropertyKey, any>, K extends keyof T>(key: K, value: T[K] | Iterable<T[K]>): (target: T) => boolean;
+	public static propEq<V, K extends PropertyKey>(key: K, value: V | Iterable<V>): (obj: Partial<Record<K, V>>) => boolean;
+	public static propEq<V, K extends PropertyKey>(key: K, value: V | Iterable<V>): (obj: Partial<Record<K, V>>) => boolean {
+		if (typeof (value as any)?.[Symbol.iterator] === 'function' && typeof value !== 'string') {
+			const targetSet = new Set(value as Iterable<V>);
+			return (obj: Partial<Record<K, V>>): boolean => targetSet.has(obj[key] as V);
+		}
 		return (obj: Partial<Record<K, V>>): boolean => obj[key] === value;
 	}
 
@@ -45,9 +49,13 @@ export class RecordPredicate {
 	 * const draftsOrArchived = posts.filter(isNotPublished);
 	 * @since v0.0.1
 	 */
-	public static propNotEq<T extends Record<PropertyKey, any>, K extends keyof T>(key: K, value: T[K]): (target: T) => boolean;
-	public static propNotEq<V, K extends PropertyKey>(key: K, value: V): (obj: Partial<Record<K, V>>) => boolean;
-	public static propNotEq<V, K extends PropertyKey>(key: K, value: V): (obj: Partial<Record<K, V>>) => boolean {
+	public static propNotEq<T extends Record<PropertyKey, any>, K extends keyof T>(key: K, value: T[K] | Iterable<T[K]>): (target: T) => boolean;
+	public static propNotEq<V, K extends PropertyKey>(key: K, value: V | Iterable<V>): (obj: Partial<Record<K, V>>) => boolean;
+	public static propNotEq<V, K extends PropertyKey>(key: K, value: V | Iterable<V>): (obj: Partial<Record<K, V>>) => boolean {
+		if (typeof (value as any)?.[Symbol.iterator] === 'function' && typeof value !== 'string') {
+			const targetSet = new Set(value as Iterable<V>);
+			return (obj: Partial<Record<K, V>>): boolean => !targetSet.has(obj[key] as V);
+		}
 		return (obj: Partial<Record<K, V>>): boolean => obj[key] !== value;
 	}
 

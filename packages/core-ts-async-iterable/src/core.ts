@@ -9,23 +9,46 @@ export class AsyncIterCore {
 	/**
 	 * Type guard that checks if a value is an async iterable.
 	 * @template T - The type of elements contained in the async iterable.
-	 * @param {unknown} value - The value to check for async iterability.
+	 * @param {NoInfer<T> | AsyncIterable<unknown>} value - The value to check for async iterability.
 	 * @returns {boolean} `true` if the value implements the `AsyncIterable` interface; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static is<T = unknown>(value: T): value is IsGuard<T, AsyncIterable<unknown>> {
+	public static is<T = unknown>(value: NoInfer<T> | AsyncIterable<unknown>): value is IsGuard<T, AsyncIterable<unknown>> {
 		return typeof (value as any)?.[Symbol.asyncIterator] === 'function';
 	}
 
 	/**
 	 * Type guard that checks if a value is not an async iterable.
 	 * @template T - The type of elements contained in the async iterable.
-	 * @param {unknown} value - The value to check for non-async-iterability.
+	 * @param {NoInfer<T> | AsyncIterable<unknown>} value - The value to check for non-async-iterability.
 	 * @returns {boolean} `true` if the value does not implement the `AsyncIterable` interface; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static isNot<T = unknown>(value: T): value is IsNotGuard<T, AsyncIterable<unknown>> {
+	public static isNot<T = unknown>(value: NoInfer<T> | AsyncIterable<unknown>): value is IsNotGuard<T, AsyncIterable<unknown>> {
 		return !AsyncIterCore.is(value);
+	}
+
+	/**
+	 * Arrays filter implementation for async iterables (or iterables).
+	 * @template T The type of elements contained in the iterable.
+	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The async iterable or iterable to filter.
+	 * @param {(value: T) => boolean | Promise<boolean>} predicate - The predicate function to test each element.
+	 * @returns {AsyncIterable<T>} An async iterable containing the filtered elements.
+	 * @example
+	 * for await (const value of AsyncIterCore.filter(someIterable, AsyncIterPredicate.oneOf('hello'))) {
+	 *   // Inside this block, `value` is guaranteed to be 'hello'
+	 * }
+	 * @since v0.0.1
+	 */
+	public static filter<T>(iterable: AsyncIterable<T> | Iterable<T>, predicate: (value: T) => boolean | Promise<boolean>): AsyncIterable<T> {
+		async function* generator() {
+			for await (const item of iterable) {
+				if (await predicate(item)) {
+					yield item;
+				}
+			}
+		}
+		return generator();
 	}
 
 	/**
@@ -103,6 +126,32 @@ export class AsyncIterCore {
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * Converts an async iterable (or iterable) to an Promise array.
+	 * @param iterables - The async iterable or iterable to convert.
+	 * @returns A promise that resolves to an array of the iterable's elements.
+	 */
+	public static async asArray<T>(iterables: AsyncIterable<T> | Iterable<T>): Promise<T[]> {
+		if ('fromAsync' in Array) {
+			return Array.fromAsync(iterables);
+			/* c8 ignore next 7 */
+		}
+		const result: T[] = [];
+		for await (const item of iterables) {
+			result.push(item);
+		}
+		return result;
+	}
+
+	/**
+	 * Converts an async iterable (or iterable) to a Promise set.
+	 * @param iterables - The async iterable or iterable to convert.
+	 * @returns A promise that resolves to a set of the iterable's elements.
+	 */
+	public static async asSet<T>(iterables: AsyncIterable<T> | Iterable<T>): Promise<Set<T>> {
+		return new Set<T>(await AsyncIterCore.asArray(iterables));
 	}
 
 	/**

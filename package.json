@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "core-ts-root",
   "private": true,
   "workspaces": [
@@ -23,5 +24,21 @@
     "coverage": "vitest run --reporter=dot --coverage --coverage.reporter=json && node -e \"console.log(JSON.stringify(require('./coverage/coverage-final.json'), null, 2))\"",
     "validate": "pnpm -r run validate"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luolapeikko/core-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "common",
+    "interface",
+    "type"
+  ],
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luolapeikko/core-ts/issues"
+  },
+  "homepage": "https://github.com/luolapeikko/core-ts#readme",
   "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d"
 }

@@ -12,7 +12,7 @@ export class StringAssert {
 	 * @throws {TypeError} If the value is not a string.
 	 * @since v0.0.1
 	 */
-	public static assert<T = unknown>(value: T): asserts value is IsGuard<T, string> {
+	public static assert<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, string> {
 		if (!StringCore.is(value)) {
 			throw StringCore.buildValueErr(value, 'String');
 		}
@@ -39,7 +39,7 @@ export class StringAssert {
 	 * // StringAssert.assertEmpty('a'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertEmpty<T = unknown>(value: T): asserts value is IsGuard<T, EmptyString> {
+	public static assertEmpty<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, EmptyString> {
 		if (!StringCore.isEmpty(value)) {
 			throw StringCore.buildValueErr(value, 'EmptyString');
 		}
@@ -70,7 +70,7 @@ export class StringAssert {
 	 * // StringAssert.assertNumeric('abc'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertNumeric<T = unknown>(value: T): asserts value is IsGuard<T, NumberString> {
+	public static assertNumeric<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, NumberString> {
 		if (!StringCore.isNumeric(value)) {
 			throw StringCore.buildValueErr(value, 'NumberString');
 		}
@@ -100,7 +100,7 @@ export class StringAssert {
 	 * // StringAssert.assertLowerCase('ABC'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertLowerCase<T = unknown>(value: T): asserts value is IsGuard<T, Lowercase<string>> {
+	public static assertLowerCase<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, Lowercase<string>> {
 		if (!StringCore.isLowerCase(value)) {
 			throw StringCore.buildValueErr(value, 'LowerCaseString');
 		}
@@ -130,7 +130,7 @@ export class StringAssert {
 	 * // StringAssert.assertUpperCase('abc'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertUpperCase<T = unknown>(value: T): asserts value is IsGuard<T, Uppercase<string>> {
+	public static assertUpperCase<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, Uppercase<string>> {
 		if (!StringCore.isUpperCase(value)) {
 			throw StringCore.buildValueErr(value, 'UpperCaseString');
 		}
@@ -162,7 +162,10 @@ export class StringAssert {
 	 * // StringAssert.assertStartsWith('hello', 'he2'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertStartsWith<T = unknown, P extends string = string>(value: T, prefix: P): asserts value is IsGuard<T, PrefixedString<P>> {
+	public static assertStartsWith<T = unknown, P extends string = string>(
+		value: NoInfer<T> | string,
+		prefix: P,
+	): asserts value is IsGuard<T, PrefixedString<P>> {
 		if (!StringCore.startsWith(value, prefix)) {
 			throw StringCore.buildValueErr(value, 'PrefixedString');
 		}
@@ -179,7 +182,7 @@ export class StringAssert {
 	 * // StringAssert.assertEndsWith('hello', 'lo2'); // throws TypeError
 	 * @since v0.0.1
 	 */
-	public static assertEndsWith<T = unknown, S extends string = string>(value: T, suffix: S): asserts value is IsGuard<T, SuffixedString<S>> {
+	public static assertEndsWith<T = unknown, S extends string = string>(value: NoInfer<T> | string, suffix: S): asserts value is IsGuard<T, SuffixedString<S>> {
 		if (!StringCore.endsWith(value, suffix)) {
 			throw StringCore.buildValueErr(value, 'SuffixedString');
 		}
@@ -194,7 +197,7 @@ export class StringAssert {
  * Check that we have all methods implemented
  */
 type BaseType = WithAssertCore<StringFnMapping> & {
-	assertStartsWith<T = unknown, P extends string = string>(value: T, prefix: P): asserts value is IsGuard<T, PrefixedString<P>>;
-	assertEndsWith<T = unknown, S extends string = string>(value: T, suffix: S): asserts value is IsGuard<T, SuffixedString<S>>;
+	assertStartsWith<T = unknown, P extends string = string>(value: NoInfer<T> | string, prefix: P): asserts value is IsGuard<T, PrefixedString<P>>;
+	assertEndsWith<T = unknown, S extends string = string>(value: NoInfer<T> | string, suffix: S): asserts value is IsGuard<T, SuffixedString<S>>;
 };
 void 0 as unknown as typeof StringAssert satisfies BaseType;

@@ -1,4 +1,4 @@
-import type {IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
+import type {AnyRecord, IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
 import {RecordCore} from './core';
 
 /**
@@ -13,7 +13,7 @@ export class RecordAssert {
 	 * @throws {TypeError} If the value is not a record.
 	 * @since v0.0.1
 	 */
-	public static assert<T = unknown>(value: T): asserts value is IsGuard<T, Record<string, unknown>> {
+	public static assert<T = unknown>(value: NoInfer<T> | AnyRecord): asserts value is IsGuard<T, AnyRecord> {
 		if (RecordCore.isNot(value)) {
 			throw RecordCore.buildValueErr(value);
 		}
@@ -26,7 +26,7 @@ export class RecordAssert {
 	 * @throws {TypeError} If the value is a record.
 	 * @since v0.0.1
 	 */
-	public static assertNot<T = unknown>(value: unknown): asserts value is IsNotGuard<T, Record<string, unknown>> {
+	public static assertNot<T = unknown>(value: unknown): asserts value is IsNotGuard<T, AnyRecord> {
 		if (RecordCore.is(value)) {
 			throw RecordCore.buildValueErr(value, true);
 		}

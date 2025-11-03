@@ -1,5 +1,5 @@
 import {ErrorValue} from '@luolapeikko/core-ts-error';
-import type {IsGuard, IsNotGuard, ObjectMappedArray, ObjectMappedArrayTuples} from '@luolapeikko/core-ts-type';
+import type {AnyRecord, IsGuard, IsNotGuard, ObjectMappedArray, ObjectMappedArrayTuples} from '@luolapeikko/core-ts-type';
 
 /**
  * The `RecordCore` class provides utility functions for record type checks.
@@ -12,11 +12,11 @@ export class RecordCore {
 	 * @returns {boolean} `true` if the value is a `Record<string, unknown>`; otherwise, `false`.
 	 * @since v0.0.1
 	 */
-	public static is<T = unknown>(value: T): value is IsGuard<T, Record<string, unknown>> {
+	public static is<T = unknown>(value: NoInfer<T> | AnyRecord): value is IsGuard<T, AnyRecord> {
 		return typeof value === 'object' && value !== null && !Array.isArray(value);
 	}
 
-	public static isNot<T = unknown>(value: T): value is IsNotGuard<T, Record<string, unknown>> {
+	public static isNot<T = unknown>(value: T): value is IsNotGuard<T, AnyRecord> {
 		return !RecordCore.is(value);
 	}
 
@@ -67,10 +67,23 @@ export class RecordCore {
 		return Object.entries(value) as ObjectMappedArrayTuples<R>;
 	}
 
+	/**
+	 * Creates a record from Iterable of key-value tuples.
+	 * @param value - The array of key-value tuples.
+	 * @returns A record constructed from the key-value tuples.
+	 * @since v0.0.1
+	 */
 	public static fromEntries<R extends object>(value: ObjectMappedArrayTuples<R>): R {
 		return Object.fromEntries(value) as R;
 	}
 
+	/**
+	 * Omits specified keys from an object.
+	 * @param keys - The keys to omit.
+	 * @param obj - The object to omit keys from.
+	 * @returns A new object without the omitted keys.
+	 * @since v0.0.1
+	 */
 	public static omit<R extends object, K extends keyof R>(keys: Iterable<K>, obj: R): Omit<R, K> {
 		return Array.from(keys).reduce(
 			(acc, key) => {
@@ -81,6 +94,13 @@ export class RecordCore {
 		);
 	}
 
+	/**
+	 * Picks specified keys from an object.
+	 * @param keys - The keys to pick.
+	 * @param obj - The object to pick keys from.
+	 * @returns A new object with only the picked keys.
+	 * @since v0.0.1
+	 */
 	public static pick<R extends object, K extends keyof R>(keys: Iterable<K>, obj: R): Pick<R, K> {
 		return Array.from(keys).reduce(
 			(acc, key) => {
