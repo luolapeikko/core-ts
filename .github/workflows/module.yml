@@ -63,6 +63,7 @@ jobs:
       - name: Publish
         working-directory: ${{ inputs.package-path }}
         if: |
+          github.ref == env.PUBLISH_BRANCH &&
           env.NPM_TOKEN != '' &&
           env.PACKAGE_VERSION != env.NPM_VERSION
         run: pnpm publish --no-git-checks --access public
