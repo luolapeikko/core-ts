@@ -1,10 +1,10 @@
 /**
- * The `ArrayPredicate` class provides predicate functions for array type checks.
+ * The `ArrayPredicate` class provides predicate functions for {@link Array} type checks.
  * @since v0.0.1
  */
 export class ArrayPredicate {
 	/**
-	 * Creates a predicate function that checks if an array contains a specific value.
+	 * Creates a predicate function that checks if an {@link Array} contains a specific value.
 	 * @template T The type of the compare value (may be more specific than R).
 	 * @template R The type of elements being tested.
 	 * @param {T} compareValue - The value to search for.
@@ -19,7 +19,7 @@ export class ArrayPredicate {
 	}
 
 	/**
-	 * Creates a predicate function that checks if an array does not contain a specific value.
+	 * Creates a predicate function that checks if an {@link Array} does not contain a specific value.
 	 * @template T The type of the compare value to exclude.
 	 * @template R The type of elements being tested.
 	 * @param {T} compareValue - The value to search for.
@@ -34,10 +34,10 @@ export class ArrayPredicate {
 	}
 
 	/**
-	 * Creates a predicate function that checks if an array contains any of the specified values.
+	 * Creates a predicate function that checks if an {@link Array} contains any of the specified values.
 	 * @template T The type of elements to compare.
 	 * @param {AnyArray<T>} compareValues - The values to search for.
-	 * @returns {function(AnyArray<T>): boolean} A function that returns `true` if the array contains any of the values.
+	 * @returns {function(AnyArray<T>): boolean} A function that returns `true` if the {@link Array} contains any of the values.
 	 * @since v0.0.1
 	 */
 	public static anyOf<T>(compareValues: Iterable<T>): <R>(value: R) => value is T & R {
@@ -46,10 +46,10 @@ export class ArrayPredicate {
 	}
 
 	/**
-	 * Creates a predicate function that checks if an array contains none of the specified values.
+	 * Creates a predicate function that checks if an {@link Array} contains none of the specified values.
 	 * @template T The type of elements to compare.
 	 * @param {AnyArray<T>} compareValues - The values to check against.
-	 * @returns {function(AnyArray<T>): boolean} A function that returns `true` if the array contains none of the values.
+	 * @returns {function(AnyArray<T>): boolean} A function that returns `true` if the {@link Array} contains none of the values.
 	 * @since v0.0.1
 	 */
 	public static notAnyOf<T>(compareValues: Iterable<T>): <R>(value: R) => value is Exclude<R, T> {

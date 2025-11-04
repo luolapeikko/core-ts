@@ -7,21 +7,26 @@ import type {AnyRecord, IsGuard, IsNotGuard, ObjectMappedArray, ObjectMappedArra
  */
 export class RecordCore {
 	/**
-	 * Type guard to check if a value is a `Record<string, unknown>`.
+	 * Type guard to check if a value is a {@link Record} {@link Object}.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is a `Record<string, unknown>`; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is a {@link Record} {@link Object}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static is<T = unknown>(value: NoInfer<T> | AnyRecord): value is IsGuard<T, AnyRecord> {
 		return typeof value === 'object' && value !== null && !Array.isArray(value);
 	}
 
+	/**
+	 * Type guard to check if a value is **not** a {@link Record} {@link Object}.
+	 * @param value - The value to check.
+	 * @returns `true` if the value is **not** a {@link Record} {@link Object}; otherwise, `false`.
+	 */
 	public static isNot<T = unknown>(value: T): value is IsNotGuard<T, AnyRecord> {
 		return !RecordCore.is(value);
 	}
 
 	/**
-	 * Type-safe Object.keys() with overload for NonEmptyArray
+	 * Type-safe {@link Object.keys} with overload for NonEmptyArray
 	 * @example
 	 * const result1: NonEmptyReadonlyArray<'key'> = RecordCore.keys({key: 'value'} as const);
 	 * const result2: Array<'key'> = RecordCore.keys({key: 'value'});
@@ -37,7 +42,7 @@ export class RecordCore {
 	}
 
 	/**
-	 * Type-safe Object.values() with overload for NonEmptyArray
+	 * Type-safe {@link Object.values} with overload for NonEmptyArray
 	 * @example
 	 * const result1: NonEmptyReadonlyArray<'value'> = RecordCore.values({key: 'value'} as const);
 	 * const result2: Array<string> = RecordCore.values({key: 'value'});
@@ -52,7 +57,7 @@ export class RecordCore {
 	}
 
 	/**
-	 * Type-safe Object.entries() with overload for NonEmptyArray
+	 * Type-safe {@link Object.entries} with overload for NonEmptyArray
 	 * @example
 	 * const result1: NonEmptyReadonlyArray<['key', 'value']> = RecordCore.entries({key: 'value'} as const);
 	 * const result2: Array<['key', string]> = RecordCore.entries({key: 'value'});
@@ -68,7 +73,7 @@ export class RecordCore {
 	}
 
 	/**
-	 * Creates a record from Iterable of key-value tuples.
+	 * Type-safe {@link Object.fromEntries} to create a record from Iterable of key-value tuples.
 	 * @param value - The array of key-value tuples.
 	 * @returns A record constructed from the key-value tuples.
 	 * @since v0.0.1
@@ -78,10 +83,10 @@ export class RecordCore {
 	}
 
 	/**
-	 * Omits specified keys from an object.
+	 * {@link Omit} specified keys from an {@link Object}.
 	 * @param keys - The keys to omit.
 	 * @param obj - The object to omit keys from.
-	 * @returns A new object without the omitted keys.
+	 * @returns A new {@link Object} without the omitted keys.
 	 * @since v0.0.1
 	 */
 	public static omit<R extends object, K extends keyof R>(keys: Iterable<K>, obj: R): Omit<R, K> {
@@ -95,10 +100,10 @@ export class RecordCore {
 	}
 
 	/**
-	 * Picks specified keys from an object.
+	 * {@link Pick} specified keys from an {@link Object}.
 	 * @param keys - The keys to pick.
 	 * @param obj - The object to pick keys from.
-	 * @returns A new object with only the picked keys.
+	 * @returns A new {@link Object} with only the picked keys.
 	 * @since v0.0.1
 	 */
 	public static pick<R extends object, K extends keyof R>(keys: Iterable<K>, obj: R): Pick<R, K> {

@@ -2,15 +2,15 @@ import {ErrorValue} from '@luolapeikko/core-ts-error';
 import type {IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
 
 /**
- * The `AsyncIterCore` class provides utility functions for async iterable type checks.
+ * The `AsyncIterCore` class provides utility functions for {@link AsyncIterable} type checks.
  * @since v0.0.1
  */
 export class AsyncIterCore {
 	/**
-	 * Type guard that checks if a value is an async iterable.
+	 * Type guard that checks if a value is an {@link AsyncIterable}.
 	 * @template T - The type of elements contained in the async iterable.
 	 * @param {NoInfer<T> | AsyncIterable<unknown>} value - The value to check for async iterability.
-	 * @returns {boolean} `true` if the value implements the `AsyncIterable` interface; otherwise, `false`.
+	 * @returns {boolean} `true` if the value implements the {@link AsyncIterable} interface; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static is<T = unknown>(value: NoInfer<T> | AsyncIterable<unknown>): value is IsGuard<T, AsyncIterable<unknown>> {
@@ -18,10 +18,10 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Type guard that checks if a value is not an async iterable.
+	 * Type guard that checks if a value is **not** an {@link AsyncIterable}.
 	 * @template T - The type of elements contained in the async iterable.
 	 * @param {NoInfer<T> | AsyncIterable<unknown>} value - The value to check for non-async-iterability.
-	 * @returns {boolean} `true` if the value does not implement the `AsyncIterable` interface; otherwise, `false`.
+	 * @returns {boolean} `true` if the value does not implement the {@link AsyncIterable} interface; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNot<T = unknown>(value: NoInfer<T> | AsyncIterable<unknown>): value is IsNotGuard<T, AsyncIterable<unknown>> {
@@ -29,11 +29,11 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Arrays filter implementation for async iterables (or iterables).
+	 * Arrays filter implementation for {@link AsyncIterable} (or {@link Iterable}).
 	 * @template T The type of elements contained in the iterable.
-	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The async iterable or iterable to filter.
+	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The {@link AsyncIterable} or {@link Iterable} to filter.
 	 * @param {(value: T) => boolean | Promise<boolean>} predicate - The predicate function to test each element.
-	 * @returns {AsyncIterable<T>} An async iterable containing the filtered elements.
+	 * @returns {AsyncIterable<T>} An {@link AsyncIterable} containing the filtered elements.
 	 * @example
 	 * for await (const value of AsyncIterCore.filter(someIterable, AsyncIterPredicate.oneOf('hello'))) {
 	 *   // Inside this block, `value` is guaranteed to be 'hello'
@@ -52,7 +52,7 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Checks if the async iterable (or iterable) contains the specified value.
+	 * Checks if the {@link AsyncIterable} (or {@link Iterable}) contains the specified value.
 	 * @template T The type of elements contained in the iterable.
 	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The async iterable or iterable to check.
 	 * @param {T} value - The value to check against.
@@ -69,7 +69,7 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Checks if the async iterable (or iterable) does not contain the specified value.
+	 * Checks if the {@link AsyncIterable} (or {@link Iterable}) does not contain the specified value.
 	 * @template T The type of elements contained in the iterable.
 	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The async iterable or iterable to check.
 	 * @param {T} value - The value to check against.
@@ -81,7 +81,7 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Checks if the async iterable (or iterable) contains any of the specified values.
+	 * Checks if the {@link AsyncIterable} (or {@link Iterable}) contains any of the specified values.
 	 * @template T The type of elements contained in the iterable.
 	 * @param {AsyncIterable<T> | Iterable<T>} iterable - The async iterable or iterable to check.
 	 * @param {Iterable<T>} values - The values to test for membership in `iterable`.
@@ -99,7 +99,7 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Checks that the async iterable (or iterable) does not contain any of the specified values.
+	 * Checks that the {@link AsyncIterable} (or {@link Iterable}) does not contain any of the specified values.
 	 * @template T The type of elements contained in the iterable.
 	 * @param {AsyncIterable<T> | Iterable<T>} iterables - The async iterable or iterable to check.
 	 * @param {Iterable<T>} values - The values to verify are not yielded by `iterables`.
@@ -111,7 +111,7 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Checks if every element yielded by the async iterable (or iterable) is present in the specified values (subset check).
+	 * Checks if every element yielded by the {@link AsyncIterable} (or {@link Iterable}) is present in the specified values (subset check).
 	 * @template T The type of elements contained in the iterable.
 	 * @param {AsyncIterable<T> | Iterable<T>} iterables - The async iterable or iterable whose elements are checked.
 	 * @param {Iterable<T>} values - The superset against which to check membership.
@@ -129,9 +129,9 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Converts an async iterable (or iterable) to an Promise array.
+	 * Converts an {@link AsyncIterable} (or {@link Iterable}) to an {@link Promise} {@link Array}.
 	 * @param iterables - The async iterable or iterable to convert.
-	 * @returns A promise that resolves to an array of the iterable's elements.
+	 * @returns A {@link Promise} that resolves to an {@link Array} of the iterable's elements.
 	 */
 	public static async asArray<T>(iterables: AsyncIterable<T> | Iterable<T>): Promise<T[]> {
 		if ('fromAsync' in Array) {
@@ -146,9 +146,9 @@ export class AsyncIterCore {
 	}
 
 	/**
-	 * Converts an async iterable (or iterable) to a Promise set.
+	 * Converts an {@link AsyncIterable} (or {@link Iterable}) to a {@link Promise} {@link Set}.
 	 * @param iterables - The async iterable or iterable to convert.
-	 * @returns A promise that resolves to a set of the iterable's elements.
+	 * @returns A {@link Promise} that resolves to a {@link Set} of the iterable's elements.
 	 */
 	public static async asSet<T>(iterables: AsyncIterable<T> | Iterable<T>): Promise<Set<T>> {
 		return new Set<T>(await AsyncIterCore.asArray(iterables));

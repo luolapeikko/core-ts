@@ -7,11 +7,11 @@ import {NullishCore} from './core';
  */
 export class NullishAssert {
 	/**
-	 * Asserts that the given value is undefined.
+	 * Asserts that the given value is {@link undefined}.
 	 * @example
 	 * const res: undefined = someCall():
 	 * NullishAssert.assertUndefined(res);
-	 * @throws {TypeError} If the given value is not undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** {@link undefined}.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
@@ -22,14 +22,14 @@ export class NullishAssert {
 	}
 
 	/**
-	 * Asserts that the given value is NOT undefined.
+	 * Asserts that the given value is **not** {@link undefined}.
 	 * @example
 	 * function add(a: number, b: number): number {
 	 *   NullishAssert.assertNotUndefined(a);
 	 *   NullishAssert.assertNotUndefined(b);
 	 *   return a + b;
 	 * }
-	 * @throws {TypeError} If the given value is undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is `undefined`.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
@@ -40,11 +40,11 @@ export class NullishAssert {
 	}
 
 	/**
-	 * Asserts that the given value is `null`.
+	 * Asserts that the given value is {@link !null}.
 	 * @example
 	 * const res: null = someCall():
 	 * NullishAssert.assertNull(res);
-	 * @throws {TypeError} If the given value is not null or undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** {@link !null}.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
@@ -55,14 +55,14 @@ export class NullishAssert {
 	}
 
 	/**
-	 * Asserts that the given value is NOT `null`.
+	 * Asserts that the given value is **not** {@link !null}.
 	 * @example
 	 * function add(a: number, b: number): number {
 	 *   NullishAssert.assertNotNull(a);
 	 *   NullishAssert.assertNotNull(b);
 	 *   return a + b;
 	 * }
-	 * @throws {TypeError} If the given value is null or undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is {@link !null}.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
@@ -73,11 +73,11 @@ export class NullishAssert {
 	}
 
 	/**
-	 * Asserts that the given value is null or undefined.
+	 * Asserts that the given value is {@link !null} or {@link undefined}.
 	 * @example
 	 * const res: null | undefined = someCall():
 	 * NullishAssert.assertNullish(res);
-	 * @throws {TypeError} If the given value is not null or undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** {@link !null} or {@link undefined}.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */
@@ -88,14 +88,14 @@ export class NullishAssert {
 	}
 
 	/**
-	 * Asserts that the given value is NOT `null` or `undefined`.
+	 * Asserts that the given value is **not** {@link !null} or {@link undefined}.
 	 * @example
 	 * function add(a: number, b: number): number {
 	 *   NullishAssert.assertNotNullish(a);
 	 *   NullishAssert.assertNotNullish(b);
 	 *   return a + b;
 	 * }
-	 * @throws {TypeError} If the given value is null or undefined.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is {@link !null} or {@link undefined}.
 	 * @param {unknown} value - The value to assert.
 	 * @since v0.0.1
 	 */

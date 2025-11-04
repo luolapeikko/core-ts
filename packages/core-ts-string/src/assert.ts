@@ -2,14 +2,14 @@ import type {EmptyString, IsGuard, IsNotGuard, NumberString, PrefixedString, Str
 import {StringCore} from './core';
 
 /**
- * The `StringAssert` class provides utility functions for string type assertions.
+ * The `StringAssert` class provides utility functions for {@link String} type assertions.
  * @since v0.0.1
  */
 export class StringAssert {
 	/**
-	 * Asserts that a given value is a `string`.
+	 * Asserts that a given value is a {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is not a string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** a {@link String}.
 	 * @since v0.0.1
 	 */
 	public static assert<T = unknown>(value: NoInfer<T> | string): asserts value is IsGuard<T, string> {
@@ -19,9 +19,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is *not* a `string`.
+	 * Asserts that a given value is **not** a {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is a string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is a {@link String}.
 	 * @since v0.0.1
 	 */
 	public static assertNot<T = unknown>(value: unknown): asserts value is IsNotGuard<T, string> {
@@ -31,9 +31,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is an `EmptyString`.
+	 * Asserts that a given value is an {@link EmptyString}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is not an empty string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** an {@link EmptyString}.
 	 * @example
 	 * StringAssert.assertEmpty(''); // ok
 	 * // StringAssert.assertEmpty('a'); // throws TypeError
@@ -46,9 +46,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is a *not* an `EmptyString`.
+	 * Asserts that a given value is a **not** an {@link EmptyString}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is an empty string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is an {@link EmptyString}.
 	 * @example
 	 * StringAssert.assertNotEmpty('a'); // ok
 	 * // StringAssert.assertNotEmpty(''); // throws TypeError
@@ -61,10 +61,10 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is a numeric `string`.
+	 * Asserts that a given value is a {@link NumberString}.
 	 * Accepts integers and decimal forms (e.g. `'123'`, `'12.3'`).
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is not a numeric string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** a {@link NumberString}.
 	 * @example
 	 * StringAssert.assertNumeric('123'); // ok
 	 * // StringAssert.assertNumeric('abc'); // throws TypeError
@@ -77,9 +77,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is not a numeric `string`.
+	 * Asserts that a given value is **not** a {@link NumberString}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is a numeric string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is a {@link NumberString}.
 	 * @example
 	 * StringAssert.assertNotNumeric('abc'); // ok
 	 * // StringAssert.assertNotNumeric('123'); // throws TypeError
@@ -92,9 +92,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is a lower-case `string`.
+	 * Asserts that a given value is a {@link Lowercase} {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is not a lower-case string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** a {@link Lowercase} {@link String}.
 	 * @example
 	 * StringAssert.assertLowerCase('abc'); // ok
 	 * // StringAssert.assertLowerCase('ABC'); // throws TypeError
@@ -107,9 +107,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is not a lower-case `string`.
+	 * Asserts that a given value is **not** a {@link Lowercase} {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is a lower-case string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is a {@link Lowercase} {@link String}.
 	 * @example
 	 * StringAssert.assertNotLowerCase('ABC'); // ok
 	 * // StringAssert.assertNotLowerCase('abc'); // throws TypeError
@@ -122,9 +122,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is an upper-case `string`.
+	 * Asserts that a given value is an {@link Uppercase} {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is not an upper-case string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** an {@link Uppercase} {@link String}.
 	 * @example
 	 * StringAssert.assertUpperCase('ABC'); // ok
 	 * // StringAssert.assertUpperCase('abc'); // throws TypeError
@@ -137,9 +137,9 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value is not an upper-case `string`.
+	 * Asserts that a given value is not an {@link Uppercase} {@link String}.
 	 * @param {unknown} value - Value to check.
-	 * @throws {TypeError} If the value is an upper-case string.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is an {@link Uppercase} {@link String}.
 	 * @example
 	 * StringAssert.assertNotUpperCase('abc'); // ok
 	 * // StringAssert.assertNotUpperCase('ABC'); // throws TypeError
@@ -152,11 +152,11 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value starts with the provided prefix.
+	 * Asserts that a given {@link String} value starts with the provided prefix.
 	 * @template P extends string
 	 * @param {unknown} value - Value to check.
 	 * @param {P} prefix - Prefix to check for.
-	 * @throws {TypeError} If the value does not start with the given prefix.
+	 * @throws {TypeError} Throws {@link TypeError} if the given {@link String} value does **not** start with the provided prefix.
 	 * @example
 	 * StringAssert.assertStartsWith('hello', 'he'); // ok
 	 * // StringAssert.assertStartsWith('hello', 'he2'); // throws TypeError
@@ -172,11 +172,11 @@ export class StringAssert {
 	}
 
 	/**
-	 * Asserts that a given value ends with the provided suffix.
+	 * Asserts that a given {@link String} value ends with the provided suffix.
 	 * @template S extends string
 	 * @param {unknown} value - Value to check.
 	 * @param {S} suffix - Suffix to check for.
-	 * @throws {TypeError} If the value does not end with the given suffix.
+	 * @throws {TypeError} Throws {@link TypeError} if the given {@link String} value does **not** end with the provided suffix.
 	 * @example
 	 * StringAssert.assertEndsWith('hello', 'lo'); // ok
 	 * // StringAssert.assertEndsWith('hello', 'lo2'); // throws TypeError

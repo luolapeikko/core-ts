@@ -6,7 +6,7 @@ import {AsyncIterCore} from './core';
  */
 export class AsyncIterPredicate {
 	/**
-	 * Creates a predicate that checks if an async iterable (or iterable) yields a specific value.
+	 * Creates a predicate that checks if an {@link AsyncIterable} (or {@link Iterable}) yields a specific value.
 	 * @template T The type of elements to compare.
 	 * @param {T} compareValue - The value to search for.
 	 * @returns {(iterable: AsyncIterable<T> | Iterable<T>) => Promise<boolean>} A function that resolves to `true` if the value is yielded.
@@ -17,7 +17,7 @@ export class AsyncIterPredicate {
 	}
 
 	/**
-	 * Creates a predicate that checks if an async iterable (or iterable) does not yield a specific value.
+	 * Creates a predicate that checks if an {@link AsyncIterable} (or {@link Iterable}) does not yield a specific value.
 	 * @template T The type of elements to compare.
 	 * @param {T} compareValue - The value to check against.
 	 * @returns {(iterable: AsyncIterable<T> | Iterable<T>) => Promise<boolean>} A function that resolves to `true` if the value is not yielded.
@@ -28,7 +28,7 @@ export class AsyncIterPredicate {
 	}
 
 	/**
-	 * Creates a predicate that checks if an async iterable (or iterable) yields any of the specified values.
+	 * Creates a predicate that checks if an {@link AsyncIterable} (or {@link Iterable}) yields any of the specified values.
 	 * @template T The type of elements to compare.
 	 * @param {Iterable<T> | AsyncIterable<T>} compareValues - The values to search for.
 	 * @returns {(iterable: AsyncIterable<T> | Iterable<T>) => Promise<boolean>} A function that resolves to `true` if any value is yielded.
@@ -43,7 +43,7 @@ export class AsyncIterPredicate {
 	}
 
 	/**
-	 * Creates a predicate that checks if an async iterable (or iterable) yields none of the specified values.
+	 * Creates a predicate that checks if an {@link AsyncIterable} (or {@link Iterable}) yields none of the specified values.
 	 * @template T The type of elements to compare.
 	 * @param {Iterable<T> | AsyncIterable<T>} compareValues - The values to verify are not yielded.
 	 * @returns {(iterable: AsyncIterable<T> | Iterable<T>) => Promise<boolean>} A function that resolves to `true` if none of the values are yielded.

@@ -22,7 +22,11 @@ const hasEven = IterCore.anyOf(numbers, [2, 4]); // true
 const allPositive = IterCore.allOf(numbers, [1, 2, 3, 4, 5]); // true
 
 // Predicates for filtering
-const iterables = [[1, 2], [3, 4], [5, 6]];
+const iterables = [
+	[1, 2],
+	[3, 4],
+	[5, 6],
+];
 const containsTwo = iterables.filter(IterPredicate.oneOf(2)); // [[1, 2]]
 
 // Example usage

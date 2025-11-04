@@ -1,10 +1,10 @@
 /**
- * The `RecordPredicate` class provides predicate functions for record type checks.
+ * The `RecordPredicate` class provides predicate functions for {@link Record} type checks.
  * @since v0.0.1
  */
 export class RecordPredicate {
 	/**
-	 * Creates a predicate function that checks if a specific property of a record is equal to a given value.
+	 * Creates a predicate function that checks if a specific property of a {@link Record} is equal to a given value.
 	 * @template T - The type of the record (strict overload).
 	 * @template K - The key of the property to check.
 	 * @template V - The value type of the property (loose overload).
@@ -32,7 +32,7 @@ export class RecordPredicate {
 	}
 
 	/**
-	 * Creates a predicate function that checks if a specific property of a record is not equal to a given value.
+	 * Creates a predicate function that checks if a specific property of a {@link Record} is not equal to a given value.
 	 * @template T - The type of the record (strict overload).
 	 * @template K - The key of the property to check.
 	 * @template V - The value type of the property (loose overload).

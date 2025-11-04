@@ -7,9 +7,9 @@ import type {IsGuard, IsNotGuard, NullishFnMapping, WithIsCore} from '@luolapeik
  */
 export class NullishCore {
 	/**
-	 * Type guard check if the given value is undefined.
+	 * Type guard check if the given value is {@link undefined}.
 	 * @param {unknown} value The value to check
-	 * @returns {value is undefined} True if the value is undefined, otherwise false
+	 * @returns {value is undefined} True if the value is {@link undefined}, otherwise false
 	 * @example
 	 * const data = ['demo', undefined, 'demo'];
 	 * const count = data.filter(NullishCore.isUndefined).length; // 1
@@ -20,10 +20,10 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard check if the given value is not undefined.
+	 * Type guard check if the given value is **not** {@link undefined}.
 	 * @template T The type of the value
 	 * @param {T | undefined} value The value to check
-	 * @returns {value is T} True if the value is not undefined, otherwise false
+	 * @returns {value is T} True if the value is **not** {@link undefined}, otherwise false
 	 * @example
 	 * const data = ['demo', undefined, 'demo'];
 	 * const output: string[] = data.filter(NullishCore.isNotUndefined);
@@ -34,10 +34,10 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard to check if the given value is `null`.
+	 * Type guard to check if the given value is {@link !null}.
 	 * @template T The type of the value
 	 * @param {NoInfer<T> | null} value The value to check
-	 * @returns {boolean} True if the value is null, otherwise false
+	 * @returns {boolean} True if the value is {@link !null}, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const count = data.filter(NullishCore.isNull).length; // 1
@@ -48,10 +48,10 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard check if the given value is NOT `null`.
+	 * Type guard check if the given value is **not** {@link !null}.
 	 * @template T The type of the value
 	 * @param {Nullable<T>} value The value to check
-	 * @returns {value is T} True if the value is neither null nor undefined, otherwise false
+	 * @returns {value is T} True if the value is **not** {@link !null}, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const output: (string | undefined)[] = data.filter(NullishCore.isNotNull);
@@ -62,10 +62,10 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard check if the given value is null or undefined.
+	 * Type guard check if the given value is {@link !null} or {@link undefined}.
 	 * @template T The type of the value
 	 * @param {NoInfer<T> | null | undefined} value The value to check
-	 * @returns {boolean} True if the value is null or undefined, otherwise false
+	 * @returns {boolean} True if the value is {@link !null} or {@link undefined}, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const count = data.filter(NullishCore.isNullish).length; // 2
@@ -76,10 +76,10 @@ export class NullishCore {
 	}
 
 	/**
-	 * Type guard check if the given value is NOT `null` or `undefined`.
+	 * Type guard check if the given value is **not** {@link !null} or {@link undefined}.
 	 * @template T The type of the value
 	 * @param {NoInfer<T> | null | undefined} value The value to check
-	 * @returns {value is T} True if the value is neither null nor undefined, otherwise false
+	 * @returns {value is T} True if the value is **not** {@link !null} or {@link undefined}, otherwise false
 	 * @example
 	 * const data = ['demo', null, undefined, 'demo'];
 	 * const output: string[] = data.filter(NullishCore.isNotNullish);

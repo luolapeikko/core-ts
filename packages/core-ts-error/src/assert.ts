@@ -7,10 +7,9 @@ import {ErrorCore} from './core';
  */
 export class ErrorAssert {
 	/**
-	 * Asserts that the given value is an Error.
+	 * Asserts that the given value is an {@link Error} instance.
 	 * @param {unknown} err - Error to assert.
-	 * @throws {TypeError} If the given value is not an instance of the `Error` class.
-	 * @see {@link toError}
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is **not** an instance of the {@link Error} class.
 	 * @since v0.0.1
 	 * @example
 	 * try {
@@ -27,10 +26,10 @@ export class ErrorAssert {
 	}
 
 	/**
-	 * Asserts that the given value is *not* an `Error`.
+	 * Asserts that the given value is **not** an {@link Error}.
 	 * @template T The input type.
 	 * @param {unknown} err - The value to assert.
-	 * @throws {TypeError} If the value is an instance of the `Error` class.
+	 * @throws {TypeError} Throws {@link TypeError} if the given value is an instance of the {@link Error} class.
 	 * @since v0.0.1
 	 */
 	public static assertNot<T = unknown>(err: T): asserts err is IsNotGuard<T, Error> {

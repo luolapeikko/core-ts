@@ -1,12 +1,12 @@
 import {RecordCore} from './core';
 
 /**
- * The `RecordMapper` class provides utility functions for mapping and transforming record types.
+ * The `RecordMapper` class provides utility functions for mapping and transforming {@link Record} types.
  * @since v0.0.1
  */
 export class RecordMapper {
 	/**
-	 * Pick function to pick keys from an object or use as map function to pick keys from an array
+	 * Pick function to {@link Pick} keys from an {@link Object} or use as mapping function to pick keys from an array
 	 * @template K Pick keys
 	 * @template T Object type
 	 * @param {Iterable<K>} keys keys to pick
@@ -24,7 +24,7 @@ export class RecordMapper {
 	}
 
 	/**
-	 * Omit function to omit keys from an object or use as map function to omit keys from an array
+	 * Omit function to {@link Omit} keys from an {@link Object} or use as mapping function to omit keys from an array
 	 * @template K Omit keys
 	 * @template T Object type
 	 * @param {Iterable<K>} keys to omit
@@ -42,9 +42,9 @@ export class RecordMapper {
 	}
 
 	/**
-	 * Creates a function that selects a specific property value from an object.
+	 * Creates a function that selects a specific property value from an {@link Object}.
 	 *
-	 * Useful for use with arrays `map` function when extracting a single property from each object.
+	 * Useful for use with arrays `map` function when extracting a single property from each {@link Object}.
 	 * @template K Property name in target that will be selected
 	 * @template T Object target from which the property will be selected
 	 * @param {K} key The property name to select

@@ -27,33 +27,33 @@ export type IfReadonlyKeys<T> = {
 }[keyof T];
 
 /**
- * Type for any record
+ * Type for any {@link Record} {@link Object}
  * @since v0.0.1
  */
 export type AnyRecord = Record<PropertyKey, any>;
 
 /**
- * Type for an empty object
+ * Type for an empty {@link Record} {@link Object}
  * @since v0.0.1
  */
 export type EmptyObject = Record<string | number | symbol, never>;
 
 /**
- * Check if a record is readonly or never
+ * Check if a {@link Record} is readonly or never
  * @template R - The object shape
  * @since v0.0.1
  */
 export type RecordHaveReadonlyKeys<R extends object> = IfReadonlyKeys<R> extends never ? never : R;
 
 /**
- * Check if a record is non-readonly or never
+ * Check if a {@link Record} is non-readonly or never
  * @template R - The object shape
  * @since v0.0.1
  */
 export type RecordHaveWritableKeys<R extends object> = IfWritableKeys<R> extends never ? never : R;
 
 /**
- * Type mapping for Object.keys, Object.values
+ * Type mapping for {@link Object.keys}, {@link Object.values} as an {@link Array}
  *
  * 1. if R is an empty object, return type `[]`
  * 2. if R has no writable keys, return type `NonEmptyReadonlyArray<T>`
@@ -65,7 +65,7 @@ export type RecordHaveWritableKeys<R extends object> = IfWritableKeys<R> extends
 export type ObjectMappedArray<R extends object, T> = R extends EmptyObject ? [] : RecordHaveWritableKeys<R> extends never ? NonEmptyReadonlyArray<T> : T[];
 
 /**
- * Type mapping for Object.entries as an array of tuples
+ * Type mapping for {@link Object.entries} as an {@link Array} of tuples
  *
  * 1. if R is an empty object, return type `[]`
  * 2. if R has no writable keys, return type `NonEmptyReadonlyArray<[K1, V1] | [K2, V2] | ...>`

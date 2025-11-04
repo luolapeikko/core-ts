@@ -7,7 +7,7 @@ import {StringCore} from './core';
  */
 export class StringPredicate {
 	/**
-	 * Checks if the given value starts with the specified prefix.
+	 * Checks if the given {@link String} value starts with the specified prefix.
 	 * @template P - Prefix to check for.
 	 * @template T - Input value type.
 	 * @example
@@ -23,7 +23,7 @@ export class StringPredicate {
 	}
 
 	/**
-	 * Checks if the given value ends with the specified suffix.
+	 * Checks if the given {@link String} value ends with the specified suffix.
 	 * @template S - Suffix to check for.
 	 * @template T - Input value type.
 	 * @example

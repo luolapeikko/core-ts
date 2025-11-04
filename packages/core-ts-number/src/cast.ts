@@ -6,12 +6,12 @@ export class NumberCast {
 	private static readonly floatOnlyRegex = /^-?\d+\.\d+(?:[eE][-+]?\d+)?$/;
 
 	/**
-	 * Cast value to number
+	 * Cast value to {@link Number}
 	 * @example
 	 * const value: number = NumberCast.numberFrom('1');
 	 * @param value - The value to cast
 	 * @returns {number} The casted value
-	 * @throws {TypeError} If the value can't be casted as number
+	 * @throws {TypeError} Throws {@link TypeError} if the given value cannot be casted as {@link Number}.
 	 * @since v0.0.1
 	 */
 	public static numberFrom(value: Nullish<string | number | bigint>): number {
@@ -19,22 +19,40 @@ export class NumberCast {
 	}
 
 	/**
-	 * Cast value to integer
+	 * Cast value to integer {@link Number}
 	 * @example
 	 * const value: number = NumberCast.intFrom('1');
 	 * @param value - The value to cast
 	 * @returns {number} The casted value
-	 * @throws {TypeError} If the value can't be casted as integer
+	 * @throws {TypeError} Throws {@link TypeError} if the given value cannot be casted as integer.
 	 * @since v0.0.1
 	 */
 	public static intFrom(value: Nullish<string | number | bigint>): number {
 		return NumberCast.handleIntFrom(value);
 	}
 
+	/**
+	 * Cast value to floating-point {@link Number}
+	 * @example
+	 * const value: number = NumberCast.floatFrom('1.1');
+	 * @param value - The value to cast
+	 * @returns {number} The casted value
+	 * @throws {TypeError} Throws {@link TypeError} if the given value cannot be casted as floating-point {@link Number}.
+	 * @since v0.0.1
+	 */
 	public static floatFrom(value: Nullish<string | number | bigint>): number {
 		return NumberCast.handleFloatFrom(value);
 	}
 
+	/**
+	 * Cast value to bigint {@link BigInt}
+	 * @example
+	 * const value: bigint = NumberCast.bigintFrom('1');
+	 * @param value - The value to cast
+	 * @returns {bigint} The casted value
+	 * @throws {TypeError} Throws {@link TypeError} if the given value cannot be casted as bigint {@link BigInt}.
+	 * @since v0.0.1
+	 */
 	public static bigintFrom(value: Nullish<string | number | bigint>): bigint {
 		return NumberCast.handleBigIntFrom(value);
 	}

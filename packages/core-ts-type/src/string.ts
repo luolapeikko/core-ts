@@ -1,25 +1,25 @@
 /**
- * Empty string type.
+ * Empty {@link String} type.
  * @since v0.0.1
  */
 export type EmptyString = '';
 
 /**
- * String type that represents a number.
+ * {@link String} type that represents a number.
  * @since v0.0.1
  */
 export type NumberString = `${number}`;
 
 /**
- * Prefixed string type.
- * @template P - The prefix to include in the string.
+ * Prefixed {@link String} type.
+ * @template P - The prefix to include in the {@link String}.
  * @since v0.0.1
  */
 export type PrefixedString<P extends string> = `${P}${string}`;
 
 /**
- * Suffixed string type.
- * @template S - The suffix to include in the string.
+ * Suffixed {@link String} type.
+ * @template S - The suffix to include in the {@link String}.
  * @since v0.0.1
  */
 export type SuffixedString<S extends string> = `${string}${S}`;

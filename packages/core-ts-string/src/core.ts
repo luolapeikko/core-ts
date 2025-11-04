@@ -2,15 +2,15 @@ import {ErrorValue} from '@luolapeikko/core-ts-error';
 import type {EmptyString, IsGuard, IsNotGuard, NumberString, PrefixedString, StringFnMapping, SuffixedString, WithIsCore} from '@luolapeikko/core-ts-type';
 
 /**
- * The `StringCore` class provides utility functions for string type checks.
+ * The `StringCore` class provides utility functions for {@link String} type checks.
  * @since v0.0.1
  */
 export class StringCore {
 	/**
-	 * Type guard to check if a value is a `string`.
+	 * Type guard to check if a value is a {@link String}.
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is a `string`; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is a {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static is<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, string> {
@@ -18,10 +18,10 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is not a `string`.
+	 * Type guard to check if a value is **not** a {@link String}.
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is not a `string`; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is not a {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNot<T = unknown>(value: T): value is IsNotGuard<T, string> {
@@ -29,7 +29,7 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is an `EmptyString`.
+	 * Type guard to check if a value is an {@link EmptyString}.
 	 * @example
 	 * StringCore.isEmpty(''); // true
 	 * StringCore.isEmpty('hello'); // false
@@ -44,7 +44,7 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is a `NonEmptyString<T>`.
+	 * Type guard to check if a value is **not** a {@link EmptyString}.
 	 * @example
 	 * StringCore.isNotEmpty('hello'); // true
 	 * StringCore.isNotEmpty(''); // false
@@ -59,14 +59,14 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is a `Lowercase<string>`.
+	 * Type guard to check if a value is a {@link Lowercase} {@link String}.
 	 * @example
 	 * StringCore.isLowerCase('hello'); // true
 	 * StringCore.isLowerCase('HELLO'); // false
 	 * StringCore.isLowerCase(123); // false (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is a lowercase string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is a {@link Lowercase} {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isLowerCase<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, Lowercase<string>> {
@@ -74,14 +74,14 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is not a `Lowercase<string>`.
+	 * Type guard to check if a value is **not** a {@link Lowercase} {@link String}.
 	 * @example
 	 * StringCore.isNotLowerCase('HELLO'); // true
 	 * StringCore.isNotLowerCase('hello'); // false
 	 * StringCore.isNotLowerCase(123); // true (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is not a lowercase string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is **not** a {@link Lowercase} {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNotLowerCase<T = unknown>(value: T): value is IsNotGuard<T, Lowercase<string>> {
@@ -89,14 +89,14 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is an `Uppercase<string>`.
+	 * Type guard to check if a value is an {@link Uppercase} {@link String}.
 	 * @example
 	 * StringCore.isUpperCase('HELLO'); // true
 	 * StringCore.isUpperCase('hello'); // false
 	 * StringCore.isUpperCase(123); // false (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is an uppercase string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is an {@link Uppercase} {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isUpperCase<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, Uppercase<string>> {
@@ -104,14 +104,14 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is not an `Uppercase<string>`.
+	 * Type guard to check if a value is **not** an {@link Uppercase} {@link String}.
 	 * @example
 	 * StringCore.isNotUpperCase('hello'); // true
 	 * StringCore.isNotUpperCase('HELLO'); // false
 	 * StringCore.isNotUpperCase(123); // true (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is not an uppercase string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is **not** an {@link Uppercase} {@link String}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNotUpperCase<T = undefined>(value: T): value is IsNotGuard<T, Uppercase<string>> {
@@ -119,7 +119,7 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value starts with the specified prefix.
+	 * Type guard to check if a {@link String} value starts with the specified prefix.
 	 * @example
 	 * StringCore.startsWith('hello', 'he'); // true
 	 * StringCore.startsWith('hello', 'el'); // false
@@ -128,7 +128,7 @@ export class StringCore {
 	 * @template P - The prefix to check.
 	 * @param {unknown} value - The value to check.
 	 * @param {P} prefix - The expected prefix.
-	 * @returns {value is PrefixedString<P>} `true` if the value starts with the prefix; otherwise, `false`.
+	 * @returns {value is PrefixedString<P>} `true` if the {@link String} value starts with the prefix; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static startsWith<T = unknown, P extends string = string>(value: NoInfer<T> | string, prefix: P): value is IsGuard<T, PrefixedString<P>> {
@@ -136,7 +136,7 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value ends with the specified suffix.
+	 * Type guard to check if a {@link String} value ends with the specified suffix.
 	 * @example
 	 * StringCore.endsWith('hello', 'lo'); // true
 	 * StringCore.endsWith('hello', 'he'); // false
@@ -145,7 +145,7 @@ export class StringCore {
 	 * @template S - The suffix to check.
 	 * @param {unknown} value - The value to check.
 	 * @param {S} suffix - The expected suffix.
-	 * @returns {value is SuffixedString<S>} `true` if the value ends with the suffix; otherwise, `false`.
+	 * @returns {value is SuffixedString<S>} `true` if the {@link String} value ends with the suffix; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static endsWith<T = unknown, S extends string = string>(value: NoInfer<T> | string, suffix: S): value is IsGuard<T, SuffixedString<S>> {
@@ -153,7 +153,7 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is a `NumberString`.
+	 * Type guard to check if a value is a {@link NumberString}.
 	 * @example
 	 * StringCore.isNumeric('123'); // true
 	 * StringCore.isNumeric('12.3'); // true
@@ -161,7 +161,7 @@ export class StringCore {
 	 * StringCore.isNumeric(123); // false (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is a numeric string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is a {@link NumberString}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNumeric<T = unknown>(value: NoInfer<T> | string): value is IsGuard<T, NumberString> {
@@ -169,14 +169,14 @@ export class StringCore {
 	}
 
 	/**
-	 * Type guard to check if a value is not a `NumberString`.
+	 * Type guard to check if a value is **not** a {@link NumberString}.
 	 * @example
 	 * StringCore.isNotNumeric('abc'); // true
 	 * StringCore.isNotNumeric('123'); // false
 	 * StringCore.isNotNumeric(123); // true (not a string)
 	 * @template T - Input value type.
 	 * @param {unknown} value - The value to check.
-	 * @returns {boolean} `true` if the value is not a numeric string; otherwise, `false`.
+	 * @returns {boolean} `true` if the value is **not** a {@link NumberString}; otherwise, `false`.
 	 * @since v0.0.1
 	 */
 	public static isNotNumeric<T = unknown>(value: T): value is IsNotGuard<T, NumberString> {
