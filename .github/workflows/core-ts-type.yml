@@ -4,10 +4,12 @@ on:
     branches: [main]
     paths:
       - 'packages/core-ts-type/**'
+      - ".github/workflows/core-ts-type.yml"
   pull_request:
     branches: [main]
     paths:
       - 'packages/core-ts-type/**'
+      - ".github/workflows/core-ts-type.yml"
 env:
   # Setting an environment variable with the value of a configuration variable
   PUBLISH_BRANCH: 'refs/heads/main'
