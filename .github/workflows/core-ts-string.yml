@@ -1,0 +1,18 @@
+name: core-ts-string CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/core-ts-string/**"
+      - ".github/workflows/core-ts-string.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "packages/core-ts-string/**"
+      - ".github/workflows/core-ts-string.yml"
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/module.yml
+    with:
+      package-path: packages/core-ts-string
