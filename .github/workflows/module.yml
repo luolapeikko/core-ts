@@ -28,8 +28,8 @@ jobs:
       - name: Identify project environment variables
         working-directory: ${{ inputs.package-path }}
         run: |
-          echo "PACKAGE_NAME=$(jq -r .name package.json)" >> $GITHUB_ENV
-          echo "PACKAGE_VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$(cat package.json | jq -r .name)" | tee -a $GITHUB_ENV
+          echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" | tee -a $GITHUB_ENV
 
       - uses: pnpm/action-setup@v4
 

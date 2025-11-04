@@ -5,11 +5,13 @@ on:
     paths:
       - "packages/core-ts-string/**"
       - ".github/workflows/core-ts-string.yml"
+      - ".github/workflows/module.yml"
   pull_request:
     branches: [main]
     paths:
       - "packages/core-ts-string/**"
       - ".github/workflows/core-ts-string.yml"
+      - ".github/workflows/module.yml"
 
 jobs:
   module-flow:
