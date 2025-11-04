@@ -12,7 +12,7 @@ on:
       - ".github/workflows/core-ts-string.yml"
 
 jobs:
-  call-reusable:
+  module-flow:
     uses: ./.github/workflows/module.yml
     with:
       package-path: packages/core-ts-string
