@@ -23,7 +23,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: false  # Temporarily disabled
     steps:
       - uses: dcarbone/install-jq-action@v2
       - uses: actions/checkout@v4
