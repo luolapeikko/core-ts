@@ -5,14 +5,17 @@ on:
     paths:
       - "packages/core-ts-type/**"
       - ".github/workflows/core-ts-type.yml"
+      - ".github/workflows/module.yml"
   pull_request:
     branches: [main]
     paths:
       - "packages/core-ts-type/**"
       - ".github/workflows/core-ts-type.yml"
+      - ".github/workflows/module.yml"
 
 jobs:
   module-flow:
     uses: ./.github/workflows/module.yml
+    secrets: inherit
     with:
       package-path: packages/core-ts-type
