@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: ${{ env.NPM }} install
 
+      - name: Install dependencies
+        run: ${{ env.NPM }} run build
+
       - name: Generate Documentation
         run: ${{ env.NPM }} run docs
 
