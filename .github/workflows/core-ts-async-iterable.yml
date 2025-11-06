@@ -1,0 +1,21 @@
+name: core-ts-async-iterable CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/core-ts-async-iterable/**"
+      - ".github/workflows/core-ts-async-iterable.yml"
+      - ".github/workflows/module.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "packages/core-ts-async-iterable/**"
+      - ".github/workflows/core-ts-async-iterable.yml"
+      - ".github/workflows/module.yml"
+
+jobs:
+  module-flow:
+    uses: ./.github/workflows/module.yml
+    secrets: inherit
+    with:
+      package-path: packages/core-ts-async-iterable

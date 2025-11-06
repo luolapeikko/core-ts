@@ -38,7 +38,7 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Get current npmjs version
+      - name: Get current npmjs version for ${{env.PACKAGE_NAME}}
         run: |
           echo "NPM_VERSION=$(curl -s https://registry.npmjs.org/${{ env.PACKAGE_NAME }} | jq -r '."dist-tags".latest')" >> $GITHUB_ENV
 
@@ -60,7 +60,7 @@ jobs:
         if: env.HAVE_LINT_SCRIPT == 'true'
         run: pnpm run lint
 
-      - name: Publish
+      - name: Publish ${{env.PACKAGE_NAME}} ${{env.PACKAGE_VERSION}}
         working-directory: ${{ inputs.package-path }}
         if: |
           github.ref == env.PUBLISH_BRANCH &&
