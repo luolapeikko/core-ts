@@ -16,11 +16,20 @@ Record/object type guards, assertions, mapping utilities, and predicates for Typ
 npm install @luolapeikko/core-ts-record
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
-import {RecordAssert, RecordCore, RecordMapper, RecordPredicate} from '@luolapeikko/core-ts-record';
-
 ```typescript
+import {
+  RecordAssert,
+  RecordCore,
+  RecordMapper,
+  RecordPredicate,
+} from "@luolapeikko/core-ts-record";
+
 // Type guards
 const value: unknown = { name: "John", age: 30 };
 

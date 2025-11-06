@@ -3,6 +3,7 @@ import type {AnyRecord, IsGuard, IsNotGuard, ObjectMappedArray, ObjectMappedArra
 
 /**
  * The `RecordCore` class provides utility functions for record type checks.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class RecordCore {

@@ -15,6 +15,10 @@ Async iterable type guards, assertions, and predicates for TypeScript applicatio
 npm install @luolapeikko/core-ts-async-iterable
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript
@@ -53,7 +57,10 @@ await AsyncIterCore.asArray(asyncGen); // Promise<['hello', 'world']>
 await AsyncIterCore.asSet(asyncGen); // Promise<Set<'hello' | 'world'>>
 
 // Filtering with predicate
-for await (const value of AsyncIterCore.filter(asyncGen, AsyncIterPredicate.oneOf("hello"))) {
+for await (const value of AsyncIterCore.filter(
+  asyncGen,
+  AsyncIterPredicate.oneOf("hello")
+)) {
   console.log(`Filtered value: ${value}`); // Outputs 'hello'
 }
 ```

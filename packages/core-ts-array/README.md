@@ -15,24 +15,32 @@ Array type guards, assertions, and predicates for TypeScript applications.
 npm install @luolapeikko/core-ts-array
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript
-import { ArrayCore, ArrayAssert, ArrayPredicate } from '@luolapeikko/core-ts-array';
+import {
+  ArrayCore,
+  ArrayAssert,
+  ArrayPredicate,
+} from "@luolapeikko/core-ts-array";
 
 // Type guards
 const value: unknown = [1, 2, 3];
 
 if (ArrayCore.is(value)) {
-	console.log(`Array length: ${value.length}`); // value is typed as unknown[] | readonly unknown[]
+  console.log(`Array length: ${value.length}`); // value is typed as unknown[] | readonly unknown[]
 }
 
 // Assertions
 function processArray(input: unknown): string[] {
-	ArrayAssert.assert(input);
-	return input.map((item) => String(item)); // input is now typed as unknown[] | readonly unknown[]
+  ArrayAssert.assert(input);
+  return input.map((item) => String(item)); // input is now typed as unknown[] | readonly unknown[]
 }
-const data: unknown = ['hello', 'world'];
+const data: unknown = ["hello", "world"];
 const result: string[] = processArray(data);
 
 // Core utilities - checking array contents

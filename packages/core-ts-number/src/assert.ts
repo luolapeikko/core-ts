@@ -3,6 +3,7 @@ import {NumberCore} from './core';
 
 /**
  * The `NumberAssert` class provides utility functions for number type assertions.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class NumberAssert {

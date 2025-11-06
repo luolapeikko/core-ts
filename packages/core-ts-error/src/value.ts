@@ -1,5 +1,10 @@
 import type {ErrorBuildFunc} from '@luolapeikko/core-ts-type';
 
+/**
+ * The `ErrorValue` class provides utility functions for building error messages.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
+ * @since v0.0.1
+ */
 export class ErrorValue {
 	private static errorBuilderInstance: ErrorBuildFunc = ErrorValue.valueBuilder;
 

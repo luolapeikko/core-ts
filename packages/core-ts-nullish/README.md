@@ -14,14 +14,18 @@ Null/undefined type guards and assertions for TypeScript applications.
 npm install @luolapeikko/core-ts-nullish
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript
-import { NullishCore, NullishAssert } from '@luolapeikko/core-ts-nullish';
+import { NullishCore, NullishAssert } from "@luolapeikko/core-ts-nullish";
 
 // Type guards
 if (NullishCore.is(value)) {
-  console.log('Value is null or undefined'); // value is typed as null | undefined
+  console.log("Value is null or undefined"); // value is typed as null | undefined
 }
 
 if (NullishCore.isNot(value)) {

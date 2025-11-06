@@ -3,6 +3,7 @@ import {RecordCore} from './core';
 
 /**
  * The `RecordAssert` class provides utility functions for {@link Record} {@link Object} type assertions.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class RecordAssert {

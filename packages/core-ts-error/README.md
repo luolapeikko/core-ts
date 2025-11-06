@@ -15,6 +15,10 @@ Error handling utilities and type-safe error building for TypeScript application
 npm install @luolapeikko/core-ts-error
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript

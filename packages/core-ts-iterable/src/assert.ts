@@ -3,6 +3,7 @@ import {IterCore} from './core';
 
 /**
  * The `IterAssert` class provides utility functions for iterable type assertions.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class IterAssert {

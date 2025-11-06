@@ -3,6 +3,7 @@ import type {IsGuard, IsNotGuard, NullishFnMapping, WithIsCore} from '@luolapeik
 
 /**
  * The `NullishCore` class provides utility functions for nullish type checks.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class NullishCore {

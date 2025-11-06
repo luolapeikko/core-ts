@@ -3,6 +3,7 @@ import type {IsGuard, IsNotGuard} from '@luolapeikko/core-ts-type';
 
 /**
  * The `AsyncIterCore` class provides utility functions for {@link AsyncIterable} type checks.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class AsyncIterCore {

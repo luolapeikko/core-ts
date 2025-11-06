@@ -3,6 +3,7 @@ import {ArrayCore} from './core';
 
 /**
  * The `ArrayAssert` class provides utility functions for {@link Array} type assertions.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class ArrayAssert {

@@ -2,6 +2,7 @@ import {RecordCore} from './core';
 
 /**
  * The `RecordMapper` class provides utility functions for mapping and transforming {@link Record} types.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class RecordMapper {

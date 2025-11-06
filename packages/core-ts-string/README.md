@@ -15,6 +15,10 @@ String type guards, assertions, and predicates for TypeScript applications.
 npm install @luolapeikko/core-ts-string
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript

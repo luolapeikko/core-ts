@@ -1,5 +1,6 @@
 /**
  * The `ArrayPredicate` class provides predicate functions for {@link Array} type checks.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class ArrayPredicate {

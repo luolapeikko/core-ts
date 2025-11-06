@@ -3,6 +3,7 @@ import {StringCore} from './core';
 
 /**
  * The `StringAssert` class provides utility functions for {@link String} type assertions.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
  * @since v0.0.1
  */
 export class StringAssert {

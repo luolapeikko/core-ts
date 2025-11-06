@@ -13,20 +13,24 @@ A collection of lightweight, type-safe utility packages for TypeScript that prov
 ### Base Packages
 
 - **[@luolapeikko/core-ts-type](packages/core-ts-type/README.md)** - TypeScript type definitions and utilities
-- **[@luolapeikko/core-ts-error](packages/core-ts-error)** - Error handling and custom error types.
+- **[@luolapeikko/core-ts-error](packages/core-ts-error/README.md)** - Error handling and custom error types.
 
 ### Data Type Utilities
 
-- **[@luolapeikko/core-ts-string](packages/core-ts-string)** - String type guards, assertions, and predicates
-- **[@luolapeikko/core-ts-number](packages/core-ts-number)** - Number type guards, assertions, and casting
-- **[@luolapeikko/core-ts-array](packages/core-ts-array)** - Array type guards, assertions, and predicates
-- **[@luolapeikko/core-ts-record](packages/core-ts-record)** - Record/object utilities, mappers, and predicates
-- **[@luolapeikko/core-ts-nullish](packages/core-ts-nullish)** - Null/undefined type guards and assertions
+- **[@luolapeikko/core-ts-string](packages/core-ts-string/README.md)** - String type guards, assertions, and predicates
+- **[@luolapeikko/core-ts-number](packages/core-ts-number/README.md)** - Number type guards, assertions, and casting
+- **[@luolapeikko/core-ts-array](packages/core-ts-array/README.md)** - Array type guards, assertions, and predicates
+- **[@luolapeikko/core-ts-record](packages/core-ts-record/README.md)** - Record/object utilities, mappers, and predicates
+- **[@luolapeikko/core-ts-nullish](packages/core-ts-nullish/README.md)** - Null/undefined type guards and assertions
 
 ### Iterable Utilities
 
-- **[@luolapeikko/core-ts-iterable](packages/core-ts-iterable)** - Iterable type guards, assertions, and predicates
-- **[@luolapeikko/core-ts-async-iterable](packages/core-ts-async-iterable)** - Async iterable utilities and type guards
+- **[@luolapeikko/core-ts-iterable](packages/core-ts-iterable/README.md)** - Iterable type guards, assertions, and predicates
+- **[@luolapeikko/core-ts-async-iterable](packages/core-ts-async-iterable/README.md)** - Async iterable utilities and type guards
+
+### Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
 
 ## Installation
 

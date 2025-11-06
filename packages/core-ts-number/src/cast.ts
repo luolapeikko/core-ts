@@ -2,6 +2,11 @@ import {ErrorValue} from '@luolapeikko/core-ts-error';
 import type {Nullish} from '@luolapeikko/core-ts-type';
 import {NumberCore} from './core';
 
+/**
+ * The `NumberCast` class provides utility functions for casting values to {@link Number} and {@link BigInt}.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
+ * @since v0.0.1
+ */
 export class NumberCast {
 	private static readonly floatOnlyRegex = /^-?\d+\.\d+(?:[eE][-+]?\d+)?$/;
 

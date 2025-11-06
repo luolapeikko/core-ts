@@ -1,5 +1,10 @@
 import {UnknownError} from './UnknownError';
 
+/**
+ * The `ErrorCast` class provides utility functions for casting unknown values to {@link Error} instances.
+ * @see {@link https://luolapeikko.github.io/core-ts} for full documentation.
+ * @since v0.0.1
+ */
 export class ErrorCast {
 	/**
 	 * Get or create an {@link Error} from the given value, if it's not an error or string, it will be wrapped in an {@link UnknownError}.

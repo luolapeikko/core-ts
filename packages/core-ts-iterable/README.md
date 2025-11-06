@@ -15,20 +15,29 @@ Iterable type guards, assertions, and predicates for TypeScript applications.
 npm install @luolapeikko/core-ts-iterable
 ```
 
+## Full documentation
+
+See https://luolapeikko.github.io/core-ts/ for detailed API documentation and usage examples for each package.
+
 ## Usage
 
 ```typescript
-import { IterableCore, IterableAssert, IterablePredicate } from '@luolapeikko/core-ts-iterable';
+import {
+  IterableCore,
+  IterableAssert,
+  IterablePredicate,
+} from "@luolapeikko/core-ts-iterable";
 
 // Type guards
 if (IterableCore.is(value)) {
-  console.log('Value is iterable'); // value is typed as Iterable<unknown>
+  console.log("Value is iterable"); // value is typed as Iterable<unknown>
 }
 
 // Assertions
 function processIterable(input: unknown) {
   IterableAssert.assert(input);
-  for (const item of input) { // input is now typed as non-empty iterable
+  for (const item of input) {
+    // input is now typed as non-empty iterable
     console.log(item);
   }
 }
