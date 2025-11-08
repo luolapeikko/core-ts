@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-number",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Type-safe number validation, assertions, and casting utilities for TypeScript",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

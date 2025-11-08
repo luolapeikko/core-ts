@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-error",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Error handling utilities and type-safe error building for TypeScript",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
