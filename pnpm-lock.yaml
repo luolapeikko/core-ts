@@ -66,6 +66,12 @@ importers:
         specifier: workspace:*
         version: link:../core-ts-error
 
+  packages/core-ts-loadable:
+    devDependencies:
+      '@luolapeikko/core-ts-error':
+        specifier: workspace:*
+        version: link:../core-ts-error
+
   packages/core-ts-nullish:
     devDependencies:
       '@luolapeikko/core-ts-error':

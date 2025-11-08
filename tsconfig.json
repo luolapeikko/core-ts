@@ -9,6 +9,7 @@
 		{"path": "./packages/core-ts-number"},
 		{"path": "./packages/core-ts-record"},
 		{"path": "./packages/core-ts-string"},
-		{"path": "./packages/core-ts-type"}
+		{"path": "./packages/core-ts-type"},
+		{"path": "./packages/core-ts-loadable"}
 	]
 }

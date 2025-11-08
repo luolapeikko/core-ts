@@ -10,7 +10,8 @@
 			"@luolapeikko/core-ts-number": ["packages/core-ts-number/src/index.ts"],
 			"@luolapeikko/core-ts-record": ["packages/core-ts-record/src/index.ts"],
 			"@luolapeikko/core-ts-string": ["packages/core-ts-string/src/index.ts"],
-			"@luolapeikko/core-ts-type": ["packages/core-ts-type/src/index.ts"]
+			"@luolapeikko/core-ts-type": ["packages/core-ts-type/src/index.ts"],
+			"@luolapeikko/core-ts-loadable": ["packages/core-ts-loadable/src/index.ts"]
 		}
 	}
 }
