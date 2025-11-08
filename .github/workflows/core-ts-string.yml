@@ -4,12 +4,14 @@ on:
     branches: [main]
     paths:
       - "packages/core-ts-string/**"
+      - "packages/core-ts-type/**"
       - ".github/workflows/core-ts-string.yml"
       - ".github/workflows/module.yml"
   pull_request:
     branches: [main]
     paths:
       - "packages/core-ts-string/**"
+      - "packages/core-ts-type/**"
       - ".github/workflows/core-ts-string.yml"
       - ".github/workflows/module.yml"
 
