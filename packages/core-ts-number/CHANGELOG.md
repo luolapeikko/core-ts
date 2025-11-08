@@ -1,5 +1,11 @@
 # @luolapeikko/core-ts-number
 
+## 0.0.4
+
+### Patch Changes
+
+- Fix documentation
+
 ## 0.0.3
 
 ### Patch Changes

@@ -42,7 +42,7 @@ npm install @luolapeikko/core-ts-string @luolapeikko/core-ts-number @luolapeikko
 
 ## Usage
 
-Each package follows a consistent API pattern with core classes, assert classes, predicate classes, cast classes, and mapper classes (where applicable).:
+Each package follows a consistent API pattern with core classes, assert classes, predicate classes, cast classes, and mapper classes (where applicable):
 
 ### Core Classes
 

@@ -44,5 +44,6 @@ core-ts/
 │   ├── core-ts-record/         # Record/object utilities
 │   ├── core-ts-nullish/        # Null/undefined utilities
 │   ├── core-ts-iterable/       # Iterable utilities
+│   ├── core-ts-loadable/       # Loadable utilities
 │   └── core-ts-async-iterable/ # Async iterable utilities
 ```

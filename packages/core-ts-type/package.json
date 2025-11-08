@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-type",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Common TypeScript types for @luolapeikko/core-ts packages",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
