@@ -1,5 +1,11 @@
 # @luolapeikko/core-ts-type
 
+## 0.0.5
+
+### Patch Changes
+
+- 73d8ce4: package fixes
+
 ## 0.0.4
 
 ### Patch Changes
