@@ -11,7 +11,7 @@ env:
   PUBLISH_BRANCH: "refs/heads/main"
   PACKAGE_NAME: "unknown"
   PACKAGE_VERSION: "unknown"
-  PACKAGE_MANAGER: 'npm'
+  PACKAGE_MANAGER: 'pnpm'
   NPM_VERSION: "unknown"
   HAVE_VALIDATE_SCRIPT: false
   HAVE_LINT_SCRIPT: false
