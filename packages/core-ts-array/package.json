@@ -23,7 +23,7 @@
   "scripts": {
     "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
     "test": "vitest run --typecheck --coverage",
-    "validate": "tsc -b --emitDeclarationOnly --pretty false"
+    "validate": "tsc --noEmit"
   },
   "repository": "github:luolapeikko/core-ts",
   "keywords": [
