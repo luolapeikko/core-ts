@@ -1,5 +1,11 @@
 # @luolapeikko/core-ts-record
 
+## 0.0.6
+
+### Patch Changes
+
+- 1cfed23: TS update
+
 ## 0.0.5
 
 ### Patch Changes
