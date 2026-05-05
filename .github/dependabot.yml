@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "/packages/core-ts-array"
+      - "/packages/core-ts-async-iterable"
+      - "/packages/core-ts-error"
+      - "/packages/core-ts-iterable"
+      - "/packages/core-ts-loadable"
+      - "/packages/core-ts-nullish"
+      - "/packages/core-ts-number"
+      - "/packages/core-ts-record"
+      - "/packages/core-ts-string"
+      - "/packages/core-ts-type"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-name: "*"
+        dependency-type: "production"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
