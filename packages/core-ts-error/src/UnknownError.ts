@@ -22,6 +22,7 @@ interface ErrorLike {
 }
 
 type ErrorConstructorWithCaptureStackTrace = ErrorConstructor & {
+	// biome-ignore lint/complexity/noBannedTypes: V8 specific API
 	captureStackTrace: (targetObject: object, constructorOpt?: Function) => void;
 };
 
