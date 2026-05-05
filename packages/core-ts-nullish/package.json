@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
-    "validate": "tsc --noEmit",
+    "validate": "tsc -b --emitDeclarationOnly --pretty false",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "github:luolapeikko/core-ts",
