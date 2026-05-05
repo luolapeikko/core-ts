@@ -1,11 +1,10 @@
 {
 	"compilerOptions": {
 		"target": "ES2022",
-		"lib": ["esnext"],
+		"lib": ["esnext", "dom"],
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"strict": true,
-		"baseUrl": ".",
 		"declaration": true,
 		"declarationMap": true,
 		"skipLibCheck": true,

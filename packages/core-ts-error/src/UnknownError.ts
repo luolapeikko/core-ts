@@ -21,6 +21,14 @@ interface ErrorLike {
 	[key: string]: unknown;
 }
 
+type ErrorConstructorWithCaptureStackTrace = ErrorConstructor & {
+	captureStackTrace: (targetObject: object, constructorOpt?: Function) => void;
+};
+
+function hasCaptureStackTrace(errorCtor: ErrorConstructor): errorCtor is ErrorConstructorWithCaptureStackTrace {
+	return typeof (errorCtor as ErrorConstructorWithCaptureStackTrace).captureStackTrace === 'function';
+}
+
 function isErrorLike(value: unknown): value is ErrorLike {
 	if (value instanceof Error) return true;
 	if (typeof value !== 'object' || value === null) return false;
@@ -62,7 +70,7 @@ export class UnknownError extends TypeError {
 			if (typeof cause === 'object' && cause !== null) {
 				this.stack = (cause as Error).stack;
 			}
-			if (!this.stack) {
+			if (!this.stack && hasCaptureStackTrace(Error)) {
 				Error.captureStackTrace(this, this.constructor);
 			}
 			// Set the prototype explicitly to maintain the correct prototype chain
