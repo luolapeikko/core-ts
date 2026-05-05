@@ -32,6 +32,9 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Install
+        run: ${{ env.PACKAGE_MANAGER }} install
+
       - name: Build
         run: ${{ env.PACKAGE_MANAGER }} run build
 
