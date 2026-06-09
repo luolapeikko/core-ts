@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@luolapeikko/core-ts-json",
+  "version": "0.0.1",
+  "description": "Type-safe JSON validation utilities for TypeScript",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "default": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --sourcemap --format cjs,esm --dts --clean -c tsconfig.build.json",
+    "validate": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "github:luolapeikko/core-ts",
+  "keywords": [
+    "typescript",
+    "common",
+    "interface",
+    "type"
+  ],
+  "author": "mharj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luolapeikko/core-ts/issues"
+  },
+  "homepage": "https://github.com/luolapeikko/core-ts#readme",
+  "devDependencies": {
+    "@luolapeikko/core-ts-error": "workspace:*"
+  },
+  "packageManager": "pnpm@10.17.1"
+}

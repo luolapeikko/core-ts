@@ -60,6 +60,7 @@
 						"noExplicitAny": "off"
 					},
 					"complexity": {
+						"noBannedTypes": "off",
 						"noForEach": "off"
 					},
 					"correctness": {

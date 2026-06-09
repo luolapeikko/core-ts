@@ -6,6 +6,7 @@
 			"@luolapeikko/core-ts-async-iterable": ["./packages/core-ts-async-iterable/src/index.ts"],
 			"@luolapeikko/core-ts-error": ["./packages/core-ts-error/src/index.ts"],
 			"@luolapeikko/core-ts-iterable": ["./packages/core-ts-iterable/src/index.ts"],
+			"@luolapeikko/core-ts-json": ["./packages/core-ts-json/src/index.ts"],
 			"@luolapeikko/core-ts-nullish": ["./packages/core-ts-nullish/src/index.ts"],
 			"@luolapeikko/core-ts-number": ["./packages/core-ts-number/src/index.ts"],
 			"@luolapeikko/core-ts-record": ["./packages/core-ts-record/src/index.ts"],

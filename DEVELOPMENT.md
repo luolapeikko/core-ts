@@ -45,5 +45,6 @@ core-ts/
 │   ├── core-ts-nullish/        # Null/undefined utilities
 │   ├── core-ts-iterable/       # Iterable utilities
 │   ├── core-ts-loadable/       # Loadable utilities
-│   └── core-ts-async-iterable/ # Async iterable utilities
+│   ├── core-ts-async-iterable/ # Async iterable utilities
+│   └── core-ts-json/           # JSON utilities
 ```

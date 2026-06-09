@@ -1,0 +1,27 @@
+name: core-ts-json CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/core-ts-json/**"
+      - "packages/core-ts-type/**"
+      - ".github/workflows/core-ts-json.yml"
+      - ".github/workflows/module.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "packages/core-ts-json/**"
+      - "packages/core-ts-type/**"
+      - ".github/workflows/core-ts-json.yml"
+      - ".github/workflows/module.yml"
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
+jobs:
+  module-flow:
+    uses: ./.github/workflows/module.yml
+    secrets: inherit
+    with:
+      package-path: packages/core-ts-json
