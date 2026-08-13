@@ -13,7 +13,6 @@ export class LoadableCore {
 	 * @since v0.0.3
 	 */
 	public static resolve<T extends Loadable<unknown>>(loadable: T): ResolvedLoadable<T> {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		return (typeof loadable === 'function' ? loadable() : loadable) as ResolvedLoadable<T>;
 	}
 
