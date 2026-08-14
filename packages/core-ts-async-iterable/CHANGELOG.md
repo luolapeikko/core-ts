@@ -1,5 +1,11 @@
 # @luolapeikko/core-ts-async-iterable
 
+## 0.0.8
+
+### Patch Changes
+
+- Loadable update
+
 ## 0.0.7
 
 ### Patch Changes

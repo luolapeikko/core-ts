@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@luolapeikko/core-ts-json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Type-safe JSON validation utilities for TypeScript",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
