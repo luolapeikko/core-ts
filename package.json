@@ -6,16 +6,16 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.5.15",
+    "@biomejs/biome": "^2.6.4",
     "@types/node": "^24.19.2",
     "@vitest/coverage-v8": "^5.0.5",
     "c8": "^12.0.0",
-    "tsdown": "^0.23.1",
+    "tsdown": "^0.23.4",
     "typedoc": "^0.28.20",
-    "typedoc-plugin-dt-links": "^2.0.77",
+    "typedoc-plugin-dt-links": "^2.0.78",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "^6.0.3",
-    "vite": "^8.3.4",
+    "vite": "^8.3.5",
     "vitest": "^5.0.5"
   },
   "scripts": {
